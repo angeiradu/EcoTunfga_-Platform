@@ -92,12 +92,12 @@ ecotunga_backend/
 ## Designs
 
 ### Figma Mockups
-[View Figma Design](https://www.figma.com/file/your-design-file)
+[View Figma Design](https://www.figma.com/design/kpt0ILLjeMGhvAQOrBaDWX/EcoTunga?node-id=0-1&p=f&t=t295o4HrPA4C08Jw-0)
 
 ### Application Screenshots
-![Login Screen](docs/screenshots/login.png)
-![Dashboard](docs/screenshots/dashboard.png)
-![Product List](docs/screenshots/products.png)
+![Sign up Screen](C:\Users\HP\Downloads\ecotunga\ecotunga_frontend-main\ecotunga_frontend-main\src\assets\screenshot\signup.jpg)
+![Login](C:\Users\HP\Downloads\ecotunga\ecotunga_frontend-main\ecotunga_frontend-main\src\assets\screenshot\Login page.jpg)
+
 
 ## Deployment Plan
 
@@ -144,15 +144,3 @@ npm run deploy
 ## API Documentation
 
 The API endpoints are organized in the `routes` directory. Each route file corresponds to a specific resource or feature of the application. For detailed API documentation, please refer to the [API Documentation](docs/api.md).
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the ISC License. 

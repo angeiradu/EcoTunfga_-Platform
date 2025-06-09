@@ -4,7 +4,7 @@
 Ecotunga Frontend is a modern web application built with React that provides an intuitive interface for users to connect with local farmers, browse products, and manage their sustainable agriculture needs. The application features a responsive design, multi-language support, and real-time updates.
 
 ## Repository
-[GitHub Repository](https://github.com/your-username/ecotunga)
+[GitHub Repository]https://github.com/angeiradu/EcoTunfga_-Platform.git
 
 ## Tech Stack
 
@@ -80,12 +80,11 @@ ecotunga_frontend/
 ## Designs
 
 ### Figma Mockups
-[View Figma Design](https://www.figma.com/file/your-design-file)
+[View Figma Design](https://www.figma.com/design/kpt0ILLjeMGhvAQOrBaDWX/EcoTunga?node-id=0-1&p=f&t=t295o4HrPA4C08Jw-0)
 
 ### Application Screenshots
-![Home Page](docs/screenshots/home.png)
-![Product List](docs/screenshots/products.png)
-![User Dashboard](docs/screenshots/dashboard.png)
+![Signup](C:\Users\HP\Downloads\ecotunga\ecotunga_frontend-main\ecotunga_frontend-main\src\assets\screenshot\signup.jpg)
+![Login](C:\Users\HP\Downloads\ecotunga\ecotunga_frontend-main\ecotunga_frontend-main\src\assets\screenshot\Login page.jpg)
 
 ## Available Scripts
 
@@ -125,34 +124,5 @@ npm run build
 - Configure build and deployment workflows
 - Implement staging environment
 
-### 4. Performance Optimization
-- Implement code splitting
-- Optimize images and assets
-- Enable caching strategies
-- Configure CDN
 
-### 5. Monitoring and Analytics
-- Set up error tracking (e.g., Sentry)
-- Implement analytics (e.g., Google Analytics)
-- Monitor performance metrics
-- Set up logging
 
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## Browser Support
-
-The application supports the following browsers:
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## License
-
-This project is licensed under the ISC License.
