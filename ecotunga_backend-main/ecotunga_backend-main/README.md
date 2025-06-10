@@ -150,5 +150,5 @@ npm run deploy
 The API endpoints are organized in the `routes` directory. Each route file corresponds to a specific resource or feature of the application. For detailed API documentation, please refer to the [API Documentation](docs/api.md).
 
 ### Demo Video
-![Demo](https://youtu.be/hjRmp63EPwk)
+https://youtu.be/hjRmp63EPwk
 
