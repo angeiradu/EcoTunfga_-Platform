@@ -97,6 +97,10 @@ ecotunga_backend/
 ### Application Screenshots
 ![Sign up Screen](C:\Users\HP\Downloads\ecotunga\ecotunga_frontend-main\ecotunga_frontend-main\src\assets\screenshot\signup.jpg)
 ![Login](C:\Users\HP\Downloads\ecotunga\ecotunga_frontend-main\ecotunga_frontend-main\src\assets\screenshot\Login page.jpg)
+![Dashboard](C:\Users\HP\Downloads\ecotunga\ecotunga_frontend-main\ecotunga_frontend-main\src\assets\screenshot\Login page.jpg)(C:\Users\HP\Downloads\ecotunga\ecotunga_frontend-main\ecotunga_frontend-main\src\assets\screenshot\dashboard2.jpg)
+
+### Application Screenshots
+![Databaseschema](C:\Users\HP\Downloads\ecotunga\ecotunga_frontend-main\ecotunga_frontend-main\src\assets\screenshot\database schema.jpg)
 
 
 ## Deployment Plan
