@@ -127,6 +127,6 @@ npm run build
 - Implement staging environment
 
 ### Demo Video
-![Demo](https://youtu.be/hjRmp63EPwk)
+https://youtu.be/hjRmp63EPwk
 
 
