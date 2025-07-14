@@ -1,0 +1,533 @@
+{
+  "common": {
+    "welcome": "Bienvenue sur Ecotunga",
+    "home": "Accueil",
+    "about": "À propos",
+    "contact": "Contact",
+    "login": "Connexion",
+    "signup": "S'inscrire",
+    "logout": "Déconnexion",
+    "search": "Rechercher",
+    "language": "Langue",
+    "profile": "Profil",
+    "users": "Utilisateurs",
+    "appName": "Eco Tunga",
+    "dashboard": "Tableau de bord",
+    "loading": "Chargement...",
+    "saving": "Enregistrement...",
+    "close": "Fermer",
+    "cancellationSuccessful": "Annulation Réussie",
+    "cancellationFailed": "Échec de l'Annulation",
+    "ok": "OK",
+    "cancel": "Annuler",
+    "tryAgain": "Réessayer"
+  },
+  "auth": {
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "forgotPassword": "Mot de passe oublié ?",
+    "rememberMe": "Se souvenir de moi",
+    "noAccount": "Vous n'avez pas de compte ?",
+    "hasAccount": "Vous avez déjà un compte ?",
+    "loginSuccess": "Connexion réussie",
+    "loginError": "Échec de la connexion",
+    "signupSuccess": "Inscription réussie",
+    "signupError": "Échec de l'inscription",
+    "enterDetails": "Veuillez entrer vos informations",
+    "signIn": "Se connecter",
+    "signingIn": "Connexion en cours...",
+    "completeProfile": "Complétez votre profil",
+    "completeProfileSubtitle": "Parlez-nous de vous",
+    "completingRegistration": "Finalisation de l'inscription...",
+    "completeRegistration": "Finaliser l'inscription",
+    "loginRequired": "Veuillez vous connecter pour accéder à la page demandée."
+  },
+  "errors": {
+    "required": "Ce champ est obligatoire",
+    "invalidEmail": "Adresse e-mail invalide",
+    "invalidPassword": "Le mot de passe doit contenir au moins 6 caractères",
+    "serverError": "Erreur serveur survenue",
+    "networkError": "Erreur réseau survenue"
+  },
+  "profile": {
+    "title": "Paramètres du profil",
+    "subtitle": "Mettez à jour vos informations personnelles et adresse",
+    "personalInfo": "Informations personnelles",
+    "locationInfo": "Informations de localisation",
+    "addressInfo": "Informations d'adresse",
+    "firstName": "Prénom",
+    "lastName": "Nom de famille",
+    "email": "Adresse e-mail",
+    "phoneNumber": "Numéro de téléphone",
+    "gender": "Genre",
+    "ubudeheCategory": "Catégorie Ubudehe",
+    "district": "District",
+    "sector": "Secteur",
+    "cell": "Cellule",
+    "street": "Rue",
+    "firstNamePlaceholder": "Entrez votre prénom",
+    "lastNamePlaceholder": "Entrez votre nom de famille",
+    "emailPlaceholder": "Entrez votre adresse e-mail",
+    "phoneNumberPlaceholder": "Entrez votre numéro de téléphone",
+    "districtPlaceholder": "Entrez votre district",
+    "sectorPlaceholder": "Entrez votre secteur",
+    "cellPlaceholder": "Entrez votre cellule",
+    "streetPlaceholder": "Entrez votre adresse",
+    "selectGender": "Sélectionnez le genre",
+    "selectUbudehe": "Sélectionnez la catégorie Ubudehe",
+    "male": "Masculin",
+    "female": "Féminin",
+    "other": "Autre",
+    "ubudehe1": "Catégorie Ubudehe 1",
+    "ubudehe2": "Catégorie Ubudehe 2",
+    "ubudehe3": "Catégorie Ubudehe 3",
+    "ubudehe4": "Catégorie Ubudehe 4",
+    "saveChanges": "Enregistrer les modifications",
+    "cancel": "Annuler",
+    "editProfile": "Modifier le profil",
+    "phone": "Numéro de téléphone",
+    "address": "Adresse",
+    "fetchError": "Échec du chargement des informations du profil",
+    "updateSuccess": "Profil mis à jour avec succès",
+    "updateError": "Échec de la mise à jour du profil",
+    "loading": "Chargement...",
+    "userId": "ID utilisateur",
+    "fullName": "Nom complet",
+    "emailAddress": "Adresse e-mail",
+    "backToHome": "Retour à l'accueil"
+  },
+  "home": {
+    "dashboard": "Tableau de bord",
+    "bannerMessage": "Apprenez à trier vos déchets et gagnez des récompenses !",
+    "bookCollection": {
+      "title": "Réserver une collecte de déchets",
+      "description": "Planifiez une collecte pour vos déchets recyclables et contribuez à un environnement plus propre.",
+      "button": "Réserver une collecte"
+    },
+    "recyclingCenter": {
+      "title": "Trouver des centres de recyclage",
+      "description": "Localisez les centres de recyclage à proximité et déposez vos matériaux recyclables.",
+      "button": "Trouver des centres"
+    },
+    "stats": {
+      "users": "Utilisateurs",
+      "totalAmount": "Montant total",
+      "totalWastePickups": "Total des collectes",
+      "totalRecycledMaterials": "Total des matériaux recyclés",
+      "viewDetails": "Voir les détails"
+    },
+    "wasteCollection": {
+      "title": "Total des déchets collectés dans le temps",
+      "thisPeriod": "Cette période",
+      "lastPeriod": "Période précédente"
+    },
+    "recentActivity": {
+      "title": "Activité Récente",
+      "wasteCollected": "Déchets collectés pour {{name}}",
+      "joinedCleanup": "Rejoint le nettoyage de {{location}}",
+      "recycled": "{{amount}} kg de {{material}} recyclés",
+      "unlockedBadge": "Badge \"{{badge}}\" débloqué",
+      "pendingCollection": "Collecte en attente pour {{name}} à {{location}}",
+      "collectionDenied": "Collecte refusée pour {{name}} - {{reason}}"
+    },
+    "nextPickup": {
+      "title": "Prochaine collecte",
+      "date": "Date",
+      "time": "Heure",
+      "location": "Lieu"
+    },
+    "nextDropoff": {
+      "title": "Prochain dépôt de recyclables",
+      "date": "Date",
+      "time": "Heure",
+      "location": "Lieu"
+    },
+    "events": {
+      "title": "Événements à venir",
+      "umuganda": "Umuganda",
+      "youthLedCleanups": "Nettoyages dirigés par les jeunes",
+      "carFreeDays": "Journées sans voiture"
+    },
+    "guidelines": {
+      "title": "Directives de tri",
+      "separateBins": {
+        "title": "Bacs de recyclage séparés",
+        "desc": "Dédiez des bacs séparés pour différents types de recyclables (papier, ...)"
+      },
+      "clearLabeling": {
+        "title": "Étiquetage clair",
+        "desc": "Étiquetez clairement chaque bac avec le type de déchets..."
+      },
+      "foldFlatten": {
+        "title": "Plier ou aplatir",
+        "desc": "Si possible, aplatissez ou pliez les boîtes en carton et le plastique..."
+      }
+    },
+    "wasteCollections": {
+      "title": "Toutes les Demandes",
+      "tabTitle": "Collectes de Déchets",
+      "date": "Date",
+      "time": "Heure",
+      "location": "Lieu",
+      "status": "Statut",
+      "company": "Entreprise",
+      "collections": "collectes",
+      "noCollectionsFound": "Aucune collecte de déchets trouvée",
+      "noCollectionsMessage": "Vos demandes de collecte de déchets apparaîtront ici",
+      "showing": "Affichage de {{shown}} sur {{total}} collectes",
+      "locationNotSpecified": "Lieu non spécifié",
+      "notAssigned": "Non assigné",
+      "filterByStatus": "Filtrer par statut :",
+      "allStatuses": "Tous les Statuts",
+      "noCollectionsWithStatus": "Aucune collecte trouvée avec le statut : {{status}}",
+      "tryDifferentStatus": "Essayez de sélectionner un statut différent ou voir toutes les collectes",
+      "adminTitle": "Gestion des Collectes de Déchets",
+      "adminSubtitle": "Gérer et suivre toutes les demandes de collecte de déchets",
+      "userSubtitle": "Suivre et gérer vos réservations de collecte de déchets",
+      "allWasteCollections": "Toutes les Collectes de Déchets",
+      "collectionDetails": "Détails de la Collecte",
+      "pickupDate": "Date de Collecte",
+      "timeSlot": "Créneau Horaire",
+      "companyLocation": "Localisation de l'Entreprise",
+      "assignedCompany": "Entreprise Assignée",
+      "customer": "Client",
+      "customerLocation": "Localisation du Client",
+      "adminNotes": "Notes d'Administration",
+      "collectionId": "ID de Collecte",
+      "statuses": {
+        "approved": "Approuvé",
+        "pending": "En attente",
+        "rejected": "Rejeté",
+        "denied": "Rejeté",
+        "completed": "Terminé",
+        "cancelled": "Annulé",
+        "unknown": "Inconnu"
+      },
+      "actions": "Actions",
+      "cancelConfirmation": "Êtes-vous sûr de vouloir annuler cette collecte ? Cette action ne peut pas être annulée.",
+      "cancelWarningMessage": "La collecte sera définitivement annulée et supprimée de votre liste.",
+      "collectionCancelled": "Collecte Annulée",
+      "collectionCancelledMessage": "Votre collecte a été annulée avec succès.",
+      "cancellationSuccessfulMessage": "La collecte a été supprimée de votre liste et l'entreprise de collecte de déchets a été notifiée.",
+      "cancellationFailedMessage": "Une erreur s'est produite lors de l'annulation de votre collecte."
+    }
+  },
+  "recyclingCenter": {
+    "tabTitle": "Centre de Recyclage",
+    "bookRecycling": "Réserver le Recyclage",
+    "date": "Date",
+    "time": "Heure",
+    "location": "Lieu",
+    "status": "Statut",
+    "center": "Centre de Recyclage",
+    "wasteType": "Type de Déchet",
+    "bookings": "réservations",
+    "locationNotSpecified": "Lieu non spécifié",
+    "notAssigned": "Non assigné",
+    "wasteTypeNotSpecified": "Non spécifié",
+    "noBookingsFound": "Aucune réservation de centre de recyclage trouvée",
+    "noBookingsWithStatus": "Aucune réservation trouvée avec le statut : {{status}}",
+    "tryDifferentStatus": "Essayez de sélectionner un statut différent ou voir toutes les réservations",
+    "noBookingsMessage": "Vous n'avez pas encore réservé de visite au centre de recyclage. Commencez par planifier votre première visite !",
+    "cancelConfirmation": "Êtes-vous sûr de vouloir annuler cette réservation? Cette action ne peut pas être annulée.",
+    "bookingCancelled": "Réservation annulée avec succès!",
+    "bookingCancellationFailed": "Échec de l'annulation de la réservation. Veuillez réessayer.",
+    "actions": "Actions",
+    "statuses": {
+      "approved": "Approuvé",
+      "pending": "En attente",
+      "rejected": "Rejeté",
+      "denied": "Rejeté",
+      "completed": "Terminé",
+      "cancelled": "Annulé",
+      "unknown": "Inconnu"
+    }
+  },
+  "header": {
+    "home": "Accueil",
+    "dashboard": "Tableau de bord",
+    "notifications": "Notifications",
+    "settings": "Paramètres",
+    "logout": "Déconnexion"
+  },
+  "sidebar": {
+    "search": "Rechercher",
+    "sections": {
+      "home": "ACCUEIL",
+      "items": {
+        "dashboard": "Tableau de bord",
+        "wasteCollection": "Collecte des déchets",
+        "recyclingCenter": "Centre de recyclage",
+        "communityEvents": "Événements communautaires",
+        "educationMaterials": "Matériel éducatif",
+        "users": "Utilisateurs",
+        "companies": "Entreprises"
+      }
+    },
+    "settings": "Paramètres",
+    "logout": "Déconnexion"
+  },
+  "users": {
+    "title": "Utilisateurs",
+    "subtitle": "Gérez vos utilisateurs et leurs informations",
+    "usersFound": "{{count}} utilisateurs trouvés",
+    "exportPDF": "Exporter PDF",
+    "registerNewUser": "Enregistrer un nouvel utilisateur",
+    "searchPlaceholder": "Rechercher des utilisateurs par nom ou email...",
+    "noUsersFound": "Aucun utilisateur trouvé",
+    "noUsersMatch": "Aucun utilisateur ne correspond à votre recherche \"{{query}}\"",
+    "table": {
+      "name": "Nom",
+      "email": "Email",
+      "joinedDate": "Date d'inscription",
+      "action": "Actions",
+      "actions": {
+        "view": "Voir",
+        "edit": "Modifier",
+        "delete": "Supprimer"
+      }
+    },
+    "modals": {
+      "success": {
+        "title": "Succès",
+        "message": "Action terminée avec succès.",
+        "close": "Fermer"
+      },
+      "register": {
+        "title": "Enregistrer un nouvel utilisateur",
+        "subtitle": "Remplissez les détails pour créer un nouveau compte utilisateur",
+        "name": "Nom",
+        "email": "Adresse email",
+        "password": "Mot de passe",
+        "confirmPassword": "Confirmer le mot de passe",
+        "cancel": "Annuler",
+        "submit": "Enregistrer l'utilisateur"
+      },
+      "view": {
+        "title": "Détails de l'utilisateur",
+        "name": "Nom",
+        "email": "Email",
+        "userId": "ID utilisateur",
+        "joinedDate": "Date d'inscription",
+        "close": "Fermer"
+      },
+      "edit": {
+        "title": "Modifier l'utilisateur",
+        "subtitle": "Mettre à jour les informations de l'utilisateur",
+        "name": "Nom",
+        "email": "Adresse email",
+        "cancel": "Annuler",
+        "save": "Enregistrer les modifications"
+      },
+      "delete": {
+        "title": "Supprimer l'utilisateur",
+        "message": "Êtes-vous sûr de vouloir supprimer {{name}} ? Cette action ne peut pas être annulée.",
+        "cancel": "Annuler",
+        "confirm": "Supprimer"
+      }
+    },
+    "loading": "Chargement des utilisateurs...",
+    "error": "Échec du chargement des utilisateurs. Veuillez réessayer.",
+    "retry": "Réessayer",
+    "pagination": {
+      "previous": "Précédent",
+      "next": "Suivant",
+      "showing": "Affichage de {{start}} à {{end}} sur {{total}} résultats"
+    }
+  },
+  "communityEvents": {
+    "title": "Événements Communautaires",
+    "subtitle": "Découvrez et rejoignez des événements environnementaux dans votre communauté",
+    "searchPlaceholder": "Rechercher des événements...",
+    "featuredEvents": "Événements en Vedette",
+    "allEvents": "Tous les Événements",
+    "noEventsFound": "Aucun événement trouvé",
+    "noEventsMatch": "Essayez d'ajuster vos critères de recherche ou de filtrage",
+    "joinEvent": "Rejoindre l'Événement",
+    "joined": "Rejoint",
+    "joinedEvent": "Événement rejoint avec succès !",
+    "participants": "participants",
+    "by": "par",
+    "categories": {
+      "all": "Tous les Événements",
+      "cleanup": "Nettoyage",
+      "education": "Éducation",
+      "planting": "Plantation d'Arbres"
+    },
+    "createNew": "Créer un Nouvel Événement",
+    "editEvent": "Modifier l'Événement",
+    "deleteEvent": "Supprimer l'Événement",
+    "deleteConfirm": "Êtes-vous sûr de vouloir supprimer cet événement ? Cette action ne peut pas être annulée."
+  },
+  "educationMaterials": {
+    "title": "Matériel Éducatif",
+    "subtitle": "Apprenez la gestion des déchets, le recyclage et la conservation environnementale",
+    "searchPlaceholder": "Rechercher du matériel...",
+    "featuredMaterials": "Matériel en Vedette",
+    "allMaterials": "Tout le Matériel",
+    "noMaterialsFound": "Aucun matériel trouvé",
+    "noMaterialsMatch": "Essayez d'ajuster vos critères de recherche ou de filtrage",
+    "startLearning": "Commencer à Apprendre",
+    "learn": "Apprendre",
+    "readMore": "Lire Plus",
+    "views": "vues",
+    "by": "par",
+    "createNew": "Créer un Nouveau Matériel",
+    "editMaterial": "Modifier le Matériel",
+    "deleteMaterial": "Supprimer le Matériel",
+    "deleteConfirm": "Êtes-vous sûr de vouloir supprimer ce matériel ? Cette action ne peut pas être annulée.",
+    "categories": {
+      "all": "Toutes les Catégories",
+      "wasteManagement": "Gestion des Déchets",
+      "recycling": "Recyclage",
+      "composting": "Compostage",
+      "lifestyle": "Mode de Vie",
+      "eWaste": "Déchets Électroniques",
+      "packaging": "Emballage",
+      "conservation": "Conservation",
+      "materials": "Matériaux"
+    },
+    "levels": {
+      "all": "Tous les Niveaux",
+      "beginner": "Débutant",
+      "intermediate": "Intermédiaire",
+      "advanced": "Avancé"
+    },
+    "types": {
+      "guide": "Guide",
+      "video": "Vidéo",
+      "article": "Article"
+    }
+  },
+  "recyclingCenter": {
+    "dashboard": "Tableau de Bord du Centre de Recyclage",
+    "totalBookings": "Total des Réservations",
+    "todaysBookings": "Réservations d'Aujourd'hui",
+    "thisWeek": "Cette Semaine",
+    "recentBookings": "Réservations Récentes",
+    "viewAll": "Voir Tout",
+    "todaysSchedule": "Programme d'Aujourd'hui",
+    "quickActions": "Actions Rapides",
+    "manageBookings": "Gérer les Réservations",
+    "updateProfile": "Mettre à Jour le Profil",
+    "noBookingsFound": "Aucune réservation trouvée",
+    "noBookingsMessage": "Les nouvelles réservations du centre de recyclage apparaîtront ici",
+    "noBookingsToday": "Aucune réservation programmée pour aujourd'hui",
+    "loadingBookings": "Chargement des réservations...",
+    "errorLoadingBookings": "Échec du chargement des réservations du centre de recyclage"
+  },
+  "recyclingRequest": {
+    "title": "Demandes de Recyclage",
+    "subtitle": "Gérer et voir toutes les demandes de réservation du centre de recyclage",
+    "totalRequests": "Total des Demandes",
+    "today": "Aujourd'hui",
+    "upcoming": "À Venir",
+    "past": "Passé",
+    "allRequests": "Toutes les Demandes",
+    "refresh": "Actualiser",
+    "loadingRequests": "Chargement des demandes...",
+    "errorLoadingRequests": "Erreur de Chargement des Demandes",
+    "tryAgain": "Réessayer",
+    "noRequestsFound": "Aucune Demande Trouvée",
+    "noRequestsMessage": "Aucune demande de recyclage n'a encore été faite.",
+    "noRequestsFiltered": "Aucune demande de recyclage {{filter}} trouvée.",
+    "accessDenied": "Accès Refusé",
+    "accessDeniedMessage": "Vous n'avez pas la permission de voir cette page.",
+    "date": "Date",
+    "time": "Heure",
+    "location": "Lieu",
+    "contactInformation": "Informations de Contact",
+    "addressDetails": "Détails de l'Adresse",
+    "district": "District",
+    "sector": "Secteur",
+    "cell": "Cellule",
+    "street": "Rue",
+    "notes": "Notes"
+  },
+  "bookingDetails": {
+    "title": "Détails de la Réservation",
+    "bookingId": "ID: #{{id}}",
+    "customerInformation": "Informations du Client",
+    "fullName": "Nom Complet",
+    "email": "E-mail",
+    "phone": "Téléphone",
+    "bookingDetails": "Détails de la Réservation",
+    "dropoffDate": "Date de Dépôt",
+    "timeSlot": "Créneau Horaire",
+    "status": "Statut",
+    "created": "Créé",
+    "location": "Localisation",
+    "district": "District",
+    "sector": "Secteur",
+    "cell": "Cellule",
+    "street": "Rue",
+    "wasteTypes": "Types de Déchets",
+    "noWasteTypesSpecified": "Aucun type de déchet spécifié",
+    "pricingInformation": "Informations de Prix",
+    "price": "Prix",
+    "paymentConfirmation": "Confirmation de Paiement",
+    "paymentConfirmed": "Paiement Confirmé",
+    "paymentPending": "Paiement en Attente",
+    "awaitingPaymentConfirmation": "En Attente de Confirmation de Paiement",
+    "statuses": {
+      "approved": "Approuvé",
+      "pending": "En Attente",
+      "cancelled": "Annulé"
+    }
+  },
+  "recyclingCenterBookings": {
+    "title": "Réservations du Centre de Recyclage",
+    "accessDenied": "Accès Refusé",
+    "accessDeniedMessage": "Vous n'avez pas la permission de voir cette page.",
+    "backToDashboard": "Retour au Tableau de Bord",
+    "totalBookings": "Total des Réservations",
+    "error": "Erreur",
+    "searchPlaceholder": "Rechercher des réservations...",
+    "filters": {
+      "allStatus": "Tous les Statuts",
+      "pending": "En Attente",
+      "approved": "Approuvé",
+      "completed": "Terminé",
+      "cancelled": "Annulé",
+      "allDates": "Toutes les Dates",
+      "today": "Aujourd'hui",
+      "thisWeek": "Cette Semaine",
+      "thisMonth": "Ce Mois"
+    },
+    "resultsCount": "{{filtered}} sur {{total}} réservations",
+    "loading": "Chargement des réservations...",
+    "noBookingsFound": "Aucune réservation trouvée",
+    "noBookingsMessage": "Aucune réservation n'a encore été faite.",
+    "tryAdjustingFilters": "Essayez d'ajuster vos filtres ou termes de recherche.",
+    "tableHeaders": {
+      "customer": "Client",
+      "contact": "Contact",
+      "location": "Localisation",
+      "dateTime": "Date et Heure",
+      "wasteTypes": "Types de Déchets",
+      "status": "Statut",
+      "actions": "Actions"
+    },
+    "noWasteTypesSpecified": "Aucun type de déchet spécifié",
+    "statuses": {
+      "approved": "Approuvé",
+      "completed": "Terminé",
+      "pending": "En Attente",
+      "cancelled": "Annulé",
+      "unknown": "Inconnu"
+    },
+    "paymentStatuses": {
+      "confirmed": "Confirmé",
+      "declined": "Refusé",
+      "awaitingConfirmation": "En Attente de Confirmation",
+      "paymentConfirmed": "Paiement Confirmé",
+      "paymentPending": "Paiement en Attente",
+      "awaitingPaymentConfirmation": "En Attente de Confirmation de Paiement"
+    },
+    "actions": {
+      "details": "Détails",
+      "approve": "Approuver"
+    },
+    "approvalSuccess": "Réservation approuvée avec succès ! Email envoyé au client."
+  }
+} 

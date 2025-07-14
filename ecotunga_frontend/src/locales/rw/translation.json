@@ -1,0 +1,532 @@
+{
+  "common": {
+    "welcome": "Murakaza neza kuri Ecotunga",
+    "home": "Ahabanza",
+    "about": "Abo turi",
+    "contact": "Twandikire",
+    "login": "Injira",
+    "signup": "Iyandikishe",
+    "logout": "Sohoka",
+    "search": "Shakisha",
+    "language": "Ururimi",
+    "profile": "Umwirondoro",
+    "users": "Abakoresha",
+    "appName": "Eco Tunga",
+    "dashboard": "Ikibaho",
+    "loading": "Ari gukuramo...",
+    "saving": "Ari kubika...",
+    "close": "Funga",
+    "cancellationSuccessful": "Guhagarika Byagenze Neza",
+    "cancellationFailed": "Guhagarika Byanze",
+    "ok": "Sawa",
+    "cancel": "Reka",
+    "tryAgain": "Ongera ugerageze"
+  },
+  "auth": {
+    "email": "Imeyili",
+    "password": "Ijambobanga",
+    "forgotPassword": "Wibagiwe ijambobanga?",
+    "rememberMe": "Ntibibagirwe",
+    "noAccount": "Nta konti ufite?",
+    "hasAccount": "Ufite konti?",
+    "loginSuccess": "Winjiye neza",
+    "loginError": "Kwinjira byanze",
+    "signupSuccess": "Iyandikishe neza",
+    "signupError": "Kwiyandikisha byanze",
+    "enterDetails": "Andika amakuru yawe",
+    "signIn": "Injira",
+    "signingIn": "Kwinjira...",
+    "completeProfile": "Uzuza umwirondoro wawe",
+    "completeProfileSubtitle": "Dutangire ibisobanuro",
+    "completingRegistration": "Ari guzuza kwiyandikisha...",
+    "completeRegistration": "Zuzura kwiyandikisha",
+    "loginRequired": "Urakoze winjire kugira ngo ubone urupapuro rwasabwe."
+  },
+  "errors": {
+    "required": "Iki gice ngombwa",
+    "invalidEmail": "Imeyili ntabwo ari yo",
+    "invalidPassword": "Ijambobanga rigomba kuba ririmo inyuguti 6",
+    "serverError": "Habaye ikibazo kuri seriveri",
+    "networkError": "Habaye ikibazo kuri netiweke"
+  },
+  "profile": {
+    "title": "Igenamiterere rya umwirondoro",
+    "subtitle": "Vuguruza amakuru yawe n'aderesi",
+    "personalInfo": "Amakuru yawe",
+    "locationInfo": "Amakuru y'ahantu",
+    "addressInfo": "Amakuru y'aderesi",
+    "firstName": "Amazina y'umubyeyi",
+    "lastName": "Izina",
+    "email": "Aderesi ya imeyili",
+    "phoneNumber": "Telefoni",
+    "gender": "Ubwoko",
+    "ubudeheCategory": "Ubwoko bwa Ubudehe",
+    "district": "Akarere",
+    "sector": "Umurenge",
+    "cell": "Akagari",
+    "street": "Umuhanda",
+    "firstNamePlaceholder": "Andika amazina yawe y'umubyeyi",
+    "lastNamePlaceholder": "Andika izina ryawe",
+    "emailPlaceholder": "Andika aderesi yawe ya imeyili",
+    "phoneNumberPlaceholder": "Andika telefoni yawe",
+    "districtPlaceholder": "Andika akarere kawe",
+    "sectorPlaceholder": "Andika umurenge wawe",
+    "cellPlaceholder": "Andika akagari kawe",
+    "streetPlaceholder": "Andika umuhanda wawe",
+    "selectGender": "Hitamo ubwoko",
+    "selectUbudehe": "Hitamo ubwoko bwa Ubudehe",
+    "male": "Umugabo",
+    "female": "Umugore",
+    "other": "Undi",
+    "ubudehe1": "Ubwoko bwa Ubudehe 1",
+    "ubudehe2": "Ubwoko bwa Ubudehe 2",
+    "ubudehe3": "Ubwoko bwa Ubudehe 3",
+    "ubudehe4": "Ubwoko bwa Ubudehe 4",
+    "saveChanges": "Bika impinduka",
+    "cancel": "Reka",
+    "editProfile": "Hindura umwirondoro",
+    "phone": "Telefoni",
+    "address": "Aderesi",
+    "fetchError": "Kurura amakuru y'umwirondoro byanze",
+    "updateSuccess": "Umwirondoro wavuguruzwe neza",
+    "updateError": "Kuvugurura umwirondoro byanze",
+    "loading": "Ari gukuramo...",
+    "userId": "ID y'umukoresha",
+    "fullName": "Amazina yose",
+    "emailAddress": "Aderesi ya imeyili",
+    "backToHome": "Garuka kuri ahabanza"
+  },
+  "header": {
+    "home": "Ahabanza",
+    "dashboard": "Ikibaho",
+    "notifications": "Amanota",
+    "settings": "Igenamiterere",
+    "logout": "Sohoka"
+  },
+  "sidebar": {
+    "search": "Shakisha",
+    "sections": {
+      "home": "AHABANZA",
+      "items": {
+        "dashboard": "Ikibaho",
+        "wasteCollection": "Gusura imyanda",
+        "recyclingCenter": "Ikigo cyo gukoresha",
+        "communityEvents": "Ibikorwa by'umuryango",
+        "educationMaterials": "Ibikoresho by'amasomo",
+        "users": "Abakoresha",
+        "companies": "Amasosiyete"
+      }
+    },
+    "settings": "Igenamiterere",
+    "logout": "Sohoka"
+  },
+  "home": {
+    "dashboard": "Ikibaho",
+    "bannerMessage": "Menya uko utandukanya imyanda yawe kandi ubone ibihembo!",
+    "bookCollection": {
+      "title": "Andika gusura imyanda",
+      "description": "Shyira gahunda yo gusura imyanda yawe ya gusubiramo gukoreshwa kandi utange igirakamaro ku isi yoroshye.",
+      "button": "Andika gusura"
+    },
+    "recyclingCenter": {
+      "title": "Shakisha ibigo byo gukoresha",
+      "description": "Shakisha ibigo byo gukoresha biherereye hafi yawe kandi ushyire ibikoresho byawe byo gukoresha.",
+      "button": "Shakisha ibigo"
+    },
+    "stats": {
+      "users": "Abakoresha",
+      "totalAmount": "Amafaranga yose",
+      "totalWastePickups": "Ubwoko bwose bw'imyanda",
+      "totalRecycledMaterials": "Ibikoresho byose byakoreshwa",
+      "viewDetails": "Reba ibisobanuro"
+    },
+    "wasteCollection": {
+      "title": "Ubwoko bwose bw'imyanda byakusanyijwe",
+      "thisPeriod": "Iki gihe",
+      "lastPeriod": "Igihe cyashize"
+    },
+    "recentActivity": {
+      "title": "Ibikorwa Bya Vuba",
+      "wasteCollected": "Imyanda yatoranijwe kwa {{name}}",
+      "joinedCleanup": "Yinjiye mu gusukura {{location}}",
+      "recycled": "{{amount}} kg za {{material}} zongeye gukoreshwa",
+      "unlockedBadge": "Badge \"{{badge}}\" yafunguwe",
+      "pendingCollection": "Gutoranya byihuse kwa {{name}} muri {{location}}",
+      "collectionDenied": "Gutoranya byanze kwa {{name}} - {{reason}}"
+    },
+    "nextPickup": {
+      "title": "Gukurikiraho gusura imyanda",
+      "date": "Itariki",
+      "time": "Isaha",
+      "location": "Ahantu"
+    },
+    "nextDropoff": {
+      "title": "Gukurikiraho gusura ibikoresho",
+      "date": "Itariki",
+      "time": "Isaha",
+      "location": "Ahantu"
+    },
+    "events": {
+      "title": "Ibikorwa biza",
+      "umuganda": "Umuganda",
+      "youthLedCleanups": "Gusukura by'urubyiruko",
+      "carFreeDays": "Imisi idafite imodoka"
+    },
+    "guidelines": {
+      "separateBins": {
+        "title": "Gutandukanya ibikoresho",
+        "desc": "Shyira ibikoresho bitandukanye (urupapuro, ...)"
+      },
+      "clearLabeling": {
+        "title": "Kwandika neza",
+        "desc": "Andika neza buri gikoresho..."
+      },
+      "foldFlatten": {
+        "title": "Gupfunda cyangwa gupfobya",
+        "desc": "Iyo bishoboka, pfobya amapaki y'urupapuro..."
+      }
+    },
+    "wasteCollections": {
+      "title": "Ibisabwa Byose",
+      "tabTitle": "Gusura Imyanda",
+      "date": "Itariki",
+      "time": "Isaha",
+      "location": "Ahantu",
+      "status": "Imiterere",
+      "company": "Isosiyete",
+      "collections": "gusura",
+      "noCollectionsFound": "Nta gusura imyanda kivumbuwe",
+      "noCollectionsMessage": "Ibisabwa byawe byo gusura imyanda bizagaragara hano",
+      "showing": "Kwerekana {{shown}} ku {{total}} gusura",
+      "locationNotSpecified": "Ahantu nta kintu",
+      "notAssigned": "Nta kintu",
+      "filterByStatus": "Shuzuma ku miterere:",
+      "allStatuses": "Imiterere Yose",
+      "noCollectionsWithStatus": "Nta gusura kivumbuwe n'imiterere: {{status}}",
+      "tryDifferentStatus": "Gerageza guhitamo imiterere itandukanye cyangwa reba gusura yose",
+      "adminTitle": "Gukurikirana no Gukurikirana Gusura Imyanda",
+      "adminSubtitle": "Gukurikirana no gukurikirana ibisabwa byose byo gusura imyanda",
+      "userSubtitle": "Gukurikirana no gukurikirana ibisabwa byawe byo gusura imyanda",
+      "allWasteCollections": "Gusura Imyanda Yose",
+      "collectionDetails": "Amakuru yo Gusura",
+      "pickupDate": "Itariki yo Gusura",
+      "timeSlot": "Isaha yo Gusura",
+      "companyLocation": "Ahantu h'Isosiyete",
+      "assignedCompany": "Isosiyete Yatanzwe",
+      "customer": "Umukiriya",
+      "customerLocation": "Ahantu h'Umukiriya",
+      "adminNotes": "Inyandiko z'Umutekano",
+      "collectionId": "ID yo Gusura",
+      "statuses": {
+        "approved": "Byemewe",
+        "pending": "Bitaratangira",
+        "rejected": "Byanze",
+        "denied": "Byanze",
+        "completed": "Byarangiye",
+        "cancelled": "Byahagaritswe",
+        "unknown": "Nta kintu"
+      },
+      "actions": "Ibikorwa",
+      "cancelConfirmation": "Uzi neza ko ushaka guhagarika iki gusura? Iki gikorwa ntibishobora guhindurwa.",
+      "cancelWarningMessage": "Gusura kuzahagaritswe kandi kuzasibwa ku rutonde rwawe.",
+      "collectionCancelled": "Gusura Byahagaritswe",
+      "collectionCancelledMessage": "Gusura kwawe kwahagaritswe neza.",
+      "cancellationSuccessfulMessage": "Gusura byasibwe ku rutonde rwawe kandi isosiyete yo gusura imyanda yamenyeshejwe.",
+      "cancellationFailedMessage": "Habaye ikibazo mu guhagarika gusura kwawe."
+    }
+  },
+  "recyclingCenter": {
+    "tabTitle": "Ikigo cyo Gukoresha",
+    "bookRecycling": "Andika Gukoresha",
+    "date": "Itariki",
+    "time": "Isaha",
+    "location": "Ahantu",
+    "status": "Imiterere",
+    "center": "Ikigo cyo Gukoresha",
+    "wasteType": "Ubwoko bw'Imyanda",
+    "bookings": "ibisabwa",
+    "locationNotSpecified": "Ahantu nta kintu",
+    "notAssigned": "Nta kintu",
+    "wasteTypeNotSpecified": "Nta kintu",
+    "noBookingsFound": "Nta bisabwa by'ikigo cyo gukoresha bivumbuwe",
+    "noBookingsWithStatus": "Nta bisabwa bivumbuwe n'imiterere: {{status}}",
+    "tryDifferentStatus": "Gerageza guhitamo imiterere itandukanye cyangwa reba ibisabwa byose",
+    "noBookingsMessage": "Nta bisabwa ryo gukoresha byakozwe. Tangira gushyira gahunda yo gukoresha kwawe!",
+    "cancelConfirmation": "Uzi neza ko ushaka guhagarika iki gisabwa? Iki gikorwa ntibishobora guhindurwa.",
+    "bookingCancelled": "Igisabwa cyahagaritswe neza!",
+    "bookingCancellationFailed": "Guhagarika igisabwa byanze. Ongera ugerageze.",
+    "actions": "Ibikorwa",
+    "statuses": {
+      "approved": "Byemewe",
+      "pending": "Bitaratangira",
+      "rejected": "Byanze",
+      "denied": "Byanze",
+      "completed": "Byarangiye",
+      "cancelled": "Byahagaritswe",
+      "unknown": "Nta kintu"
+    }
+  },
+  "users": {
+    "title": "Abakoresha",
+    "subtitle": "Gukurikirana abakoresha bawe n'amakuru yabo",
+    "usersFound": "{{count}} abakoresha bavumbuwe",
+    "exportPDF": "Kora PDF",
+    "registerNewUser": "Andika umukoresha mushya",
+    "searchPlaceholder": "Shakisha abakoresha ku izina cyangwa email...",
+    "noUsersFound": "Nta mukoresha wavumbuwe",
+    "noUsersMatch": "Nta mukoresha uhuye n'ishakisho ryawe \"{{query}}\"",
+    "table": {
+      "name": "Izina",
+      "email": "Email",
+      "joinedDate": "Itariki yinjijwe",
+      "action": "Ibikorwa",
+      "actions": {
+        "view": "Reba",
+        "edit": "Hindura",
+        "delete": "Siba"
+      }
+    },
+    "modals": {
+      "success": {
+        "title": "Byakunze",
+        "message": "Igikorwa cyakozwe neza.",
+        "close": "Funga"
+      },
+      "register": {
+        "title": "Andika umukoresha mushya",
+        "subtitle": "Uzuze amakuru yo gukora konti nshya",
+        "name": "Izina",
+        "email": "Aderesi ya email",
+        "password": "Ijambo ry'ibanga",
+        "confirmPassword": "Emeza ijambo ry'ibanga",
+        "cancel": "Reka",
+        "submit": "Andika umukoresha"
+      },
+      "view": {
+        "title": "Amakuru y'umukoresha",
+        "name": "Izina",
+        "email": "Email",
+        "userId": "ID y'umukoresha",
+        "joinedDate": "Itariki yinjijwe",
+        "close": "Funga"
+      },
+      "edit": {
+        "title": "Hindura umukoresha",
+        "subtitle": "Vuguruza amakuru y'umukoresha",
+        "name": "Izina",
+        "email": "Aderesi ya email",
+        "cancel": "Reka",
+        "save": "Bika impinduka"
+      },
+      "delete": {
+        "title": "Siba umukoresha",
+        "message": "Urazi neza ko ushaka gusiba {{name}}? Iki gikorwa ntakiboneka gusubirwaho.",
+        "cancel": "Reka",
+        "confirm": "Siba"
+      }
+    },
+    "loading": "Abakoresha barimo gukururwa...",
+    "error": "Kurura abakoresha byanze. Nyamuneka ongera ugerageze.",
+    "retry": "Ongera ugerageze",
+    "pagination": {
+      "previous": "Ibanjirije",
+      "next": "Gukurikira",
+      "showing": "Kwerekana {{start}} kugeza {{end}} ku {{total}} ibisubizo"
+    }
+  },
+  "communityEvents": {
+    "title": "Ibikorwa by'Umuryango",
+    "subtitle": "Shakisha kandi ujye mu bikorwa by'ibidukikije muri umuryango wawe",
+    "searchPlaceholder": "Shakisha ibikorwa...",
+    "featuredEvents": "Ibikorwa By'Agaciro",
+    "allEvents": "Ibikorwa Byose",
+    "noEventsFound": "Nta gikorwa kivumbuwe",
+    "noEventsMatch": "Gerageza guhindura ibisubizo byawe cyangwa ibisuzuma",
+    "joinEvent": "Jya mu Gikorwa",
+    "joined": "Yinjiye",
+    "joinedEvent": "Igikorwa cyinjiwe neza!",
+    "participants": "abajyanye",
+    "by": "na",
+    "categories": {
+      "all": "Ibikorwa Byose",
+      "cleanup": "Gusukura",
+      "education": "Amasomo",
+      "planting": "Gutera Ibiti"
+    },
+    "createNew": "Kora Igikorwa Gishya",
+    "editEvent": "Hindura Igikorwa",
+    "deleteEvent": "Siba Igikorwa",
+    "deleteConfirm": "Uzi neza ko ushaka gusiba iki gikorwa? Iki gikorwa ntibishobora guhindurwa."
+  },
+  "educationMaterials": {
+    "title": "Ibikoresho by'Amasomo",
+    "subtitle": "Jya amasomo ku gucunga imyanda, gukoresha ibikoresho no kurinda ibidukikije",
+    "searchPlaceholder": "Shakisha ibikoresho...",
+    "featuredMaterials": "Ibikoresho By'Agaciro",
+    "allMaterials": "Ibikoresho Byose",
+    "noMaterialsFound": "Nta gikoresho kivumbuwe",
+    "noMaterialsMatch": "Gerageza guhindura ibisubizo byawe cyangwa ibisuzuma",
+    "startLearning": "Tangira Kwiga",
+    "learn": "Jya",
+    "readMore": "Soma Byinshi",
+    "views": "kureba",
+    "by": "na",
+    "createNew": "Kora Ibikoresho Bishya",
+    "editMaterial": "Hindura Ibikoresho",
+    "deleteMaterial": "Siba Ibikoresho",
+    "deleteConfirm": "Uzi neza ko ushaka gusiba ibi bikoresho? Iki gikorwa ntibishobora guhindurwa.",
+    "categories": {
+      "all": "Ibwoko Byose",
+      "wasteManagement": "Gucunga Imyanda",
+      "recycling": "Gukoresha Ibikoresho",
+      "composting": "Gukora Ifumbire",
+      "lifestyle": "Uko Twibaho",
+      "eWaste": "Imyanda ya Elektroniki",
+      "packaging": "Gupakira",
+      "conservation": "Kurinda",
+      "materials": "Ibikoresho"
+    },
+    "levels": {
+      "all": "Urupapuro Rwose",
+      "beginner": "Utangira",
+      "intermediate": "Hagati",
+      "advanced": "Urupapuro Rwo Hejuru"
+    },
+    "types": {
+      "guide": "Inyongera",
+      "video": "Video",
+      "article": "Inyandiko"
+    }
+  },
+  "recyclingCenter": {
+    "dashboard": "Ikibaho cy'Ikigo cyo Gukoresha",
+    "totalBookings": "Ibisabwa Byose",
+    "todaysBookings": "Ibisabwa byo Uyu Munsi",
+    "thisWeek": "Iyi Cyumweru",
+    "recentBookings": "Ibisabwa Bya Vuba",
+    "viewAll": "Reba Byose",
+    "todaysSchedule": "Gahunda yo Uyu Munsi",
+    "quickActions": "Ibikorwa Byihuse",
+    "manageBookings": "Gukurikirana Ibisabwa",
+    "updateProfile": "Vuguruza Ikibaho",
+    "noBookingsFound": "Nta bisabwa bivumbuwe",
+    "noBookingsMessage": "Ibisabwa bishya by'ikigo cyo gukoresha bizagaragara hano",
+    "noBookingsToday": "Nta bisabwa byagenwe ku uyu munsi",
+    "loadingBookings": "Ibisabwa biramo gukururwa...",
+    "errorLoadingBookings": "Kurura ibisabwa by'ikigo cyo gukoresha byanze"
+  },
+  "recyclingRequest": {
+    "title": "Ibisabwa byo Gukoresha",
+    "subtitle": "Gukurikirana kandi urebe ibisabwa byose byo gukoresha",
+    "totalRequests": "Ibisabwa Byose",
+    "today": "Uyu Munsi",
+    "upcoming": "Biza",
+    "past": "Byashize",
+    "allRequests": "Ibisabwa Byose",
+    "refresh": "Vuguruza",
+    "loadingRequests": "Ibisabwa biramo gukururwa...",
+    "errorLoadingRequests": "Ikosa Kurura Ibisabwa",
+    "tryAgain": "Ongera Ugerageze",
+    "noRequestsFound": "Nta Bisabwa Bivumbuwe",
+    "noRequestsMessage": "Nta bisabwa ryo gukoresha byakozwe.",
+    "noRequestsFiltered": "Nta bisabwa ryo gukoresha {{filter}} rivumbuwe.",
+    "accessDenied": "Kwinjira Byanze",
+    "accessDeniedMessage": "Nta uburenganzira ufite bwo kureba iyi paji.",
+    "date": "Itariki",
+    "time": "Isaha",
+    "location": "Ahantu",
+    "contactInformation": "Amakuru yo Kwandikira",
+    "addressDetails": "Amakuru y'Aderesi",
+    "district": "Akarere",
+    "sector": "Umurenge",
+    "cell": "Akagari",
+    "street": "Umuhanda",
+    "notes": "Inyandiko"
+  },
+  "bookingDetails": {
+    "title": "Ibisobanuro by'Igisabwa",
+    "bookingId": "ID: #{{id}}",
+    "customerInformation": "Amakuru y'Umukiriya",
+    "fullName": "Amazina Yose",
+    "email": "Imyeri",
+    "phone": "Telefoni",
+    "bookingDetails": "Ibisobanuro by'Igisabwa",
+    "dropoffDate": "Itariki yo Gushyira",
+    "timeSlot": "Isaha",
+    "status": "Imiterere",
+    "created": "Byakozwe",
+    "location": "Ahantu",
+    "district": "Akarere",
+    "sector": "Umurenge",
+    "cell": "Akagari",
+    "street": "Umuhanda",
+    "wasteTypes": "Ubwoko bw'Imyanda",
+    "noWasteTypesSpecified": "Nta bwoko bw'imyanda bwatanzwe",
+    "pricingInformation": "Amakuru y'Amafaranga",
+    "price": "Amafaranga",
+    "paymentConfirmation": "Ukwemeza Kwishyura",
+    "paymentConfirmed": "Kwishyura Kwemejwe",
+    "paymentPending": "Kwishyura Kihari",
+    "awaitingPaymentConfirmation": "Gutegereza Ukwemeza Kwishyura",
+    "statuses": {
+      "approved": "Byemejwe",
+      "pending": "Kihari",
+      "cancelled": "Byahagaritswe"
+    }
+  },
+  "recyclingCenterBookings": {
+    "title": "Ibisabwa by'Ikigo cyo Gukoresha",
+    "accessDenied": "Ntibyemewe",
+    "accessDeniedMessage": "Nta uburenganzira ufite bwo kureba urupapuro rw'iki.",
+    "backToDashboard": "Garuka kuri Ikibaho",
+    "totalBookings": "Ibisabwa Byose",
+    "error": "Ikibazo",
+    "searchPlaceholder": "Shakisha ibisabwa...",
+    "filters": {
+      "allStatus": "Imiterere Yose",
+      "pending": "Kihari",
+      "approved": "Byemejwe",
+      "completed": "Byarangiye",
+      "cancelled": "Byahagaritswe",
+      "allDates": "Itariki Zose",
+      "today": "Uyu Munsi",
+      "thisWeek": "Iyi Cyumweru",
+      "thisMonth": "Uku Kwezi"
+    },
+    "resultsCount": "{{filtered}} ku {{total}} ibisabwa",
+    "loading": "Ari gukuramo ibisabwa...",
+    "noBookingsFound": "Nta gisabwa kivumbuwe",
+    "noBookingsMessage": "Nta gisabwa cyakozwe kugeza ubu.",
+    "tryAdjustingFilters": "Gerageza guhindura ibikoresho byawe cyangwa amagambo yo gushakisha.",
+    "tableHeaders": {
+      "customer": "Umukiriya",
+      "contact": "Twandikire",
+      "location": "Ahantu",
+      "dateTime": "Itariki n'Isaha",
+      "wasteTypes": "Ubwoko bw'Imyanda",
+      "status": "Imiterere",
+      "actions": "Ibikorwa"
+    },
+    "noWasteTypesSpecified": "Nta bwoko bw'imyanda bwatanzwe",
+    "statuses": {
+      "approved": "Byemejwe",
+      "completed": "Byarangiye",
+      "pending": "Kihari",
+      "cancelled": "Byahagaritswe",
+      "unknown": "Ntibizwi"
+    },
+    "paymentStatuses": {
+      "confirmed": "Byemejwe",
+      "declined": "Byanze",
+      "awaitingConfirmation": "Gutegereza Ukwemeza",
+      "paymentConfirmed": "Kwishyura Kwemejwe",
+      "paymentPending": "Kwishyura Kihari",
+      "awaitingPaymentConfirmation": "Gutegereza Ukwemeza Kwishyura"
+    },
+    "actions": {
+      "details": "Ibisobanuro",
+      "approve": "Emeza"
+    },
+    "approvalSuccess": "Igisabwa cyemejwe neza! Imeyili yoherejwe kuri umukiriya."
+  }
+} 

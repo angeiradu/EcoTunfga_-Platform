@@ -1,0 +1,543 @@
+{
+  "common": {
+    "welcome": "Welcome to Ecotunga",
+    "signup": "Sign Up",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "ok": "OK",
+    "close": "Close",
+    "tryAgain": "Try Again",
+    "cancellationSuccessful": "Cancellation Successful",
+    "cancellationFailed": "Cancellation Failed"
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Password",
+    "forgotPassword": "Forgot Password?",
+    "rememberMe": "Remember Me",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "loginSuccess": "Successfully logged in",
+    "loginError": "Failed to login",
+    "signupSuccess": "Successfully signed up",
+    "signupError": "Failed to sign up",
+    "enterDetails": "Please enter your details",
+    "signIn": "Sign In",
+    "signingIn": "Signing in...",
+    "completeProfile": "Complete Your Profile",
+    "completeProfileSubtitle": "Tell us more about yourself",
+    "completingRegistration": "Completing registration...",
+    "completeRegistration": "Complete Registration",
+    "loginRequired": "Please log in to access the requested page."
+  },
+  "errors": {
+    "required": "This field is required",
+    "invalidEmail": "Invalid email address",
+    "invalidPassword": "Password must be at least 6 characters",
+    "serverError": "Server error occurred",
+    "networkError": "Network error occurred"
+  },
+  "profile": {
+    "title": "Profile Settings",
+    "subtitle": "Update your personal information and address details",
+    "personalInfo": "Personal Information",
+    "locationInfo": "Location Information",
+    "addressInfo": "Address Information",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email Address",
+    "phoneNumber": "Phone Number",
+    "gender": "Gender",
+    "ubudeheCategory": "Ubudehe Category",
+    "district": "District",
+    "sector": "Sector",
+    "cell": "Cell",
+    "street": "Street",
+    "firstNamePlaceholder": "Enter your first name",
+    "lastNamePlaceholder": "Enter your last name",
+    "emailPlaceholder": "Enter your email address",
+    "phoneNumberPlaceholder": "Enter your phone number",
+    "districtPlaceholder": "Enter your district",
+    "sectorPlaceholder": "Enter your sector",
+    "cellPlaceholder": "Enter your cell",
+    "streetPlaceholder": "Enter your street address",
+    "selectGender": "Select gender",
+    "selectUbudehe": "Select Ubudehe category",
+    "male": "Male",
+    "female": "Female",
+    "other": "Other",
+    "ubudehe1": "Ubudehe Category 1",
+    "ubudehe2": "Ubudehe Category 2",
+    "ubudehe3": "Ubudehe Category 3",
+    "ubudehe4": "Ubudehe Category 4",
+    "saveChanges": "Save Changes",
+    "cancel": "Cancel",
+    "editProfile": "Edit Profile",
+    "phone": "Phone Number",
+    "address": "Address",
+    "fetchError": "Failed to load profile information",
+    "updateSuccess": "Profile updated successfully",
+    "updateError": "Failed to update profile"
+  },
+  "home": {
+    "dashboard": "Dashboard",
+    "bannerMessage": "Learn how to sort your waste and earn rewards!",
+    "bookCollection": {
+      "title": "Book Waste Collection",
+      "description": "Schedule a pickup for your waste and contribute to a cleaner environment.",
+      "button": "Book Collection"
+    },
+    "recyclingCenter": {
+      "title": "Find Recycling Centers",
+      "description": "Locate nearby recycling centers and drop off your recyclable materials.",
+      "button": "Find Centers"
+    },
+    "stats": {
+      "users": "Users",
+      "totalAmount": "Total Amount",
+      "totalWastePickups": "Total Waste Pickups",
+      "totalRecycledMaterials": "Total Recycled Materials",
+      "viewDetails": "View details"
+    },
+    "wasteCollection": {
+      "title": "Total waste collected over time",
+      "thisPeriod": "This Period",
+      "lastPeriod": "Last Period"
+    },
+    "recentActivity": {
+      "title": "Recent Activity",
+      "wasteCollected": "Waste collected for {{name}}",
+      "joinedCleanup": "Joined {{location}} cleanup",
+      "recycled": "{{amount}} kg of {{material}} recycled",
+      "unlockedBadge": "Unlocked \"{{badge}}\" badge",
+      "pendingCollection": "Pending collection for {{name}} in {{location}}",
+      "collectionDenied": "Collection denied for {{name}} - {{reason}}"
+    },
+    "nextPickup": {
+      "title": "Next Waste Pickup",
+      "date": "Date",
+      "time": "Time",
+      "location": "Location"
+    },
+    "nextDropoff": {
+      "title": "Next Recyclables Drop-off",
+      "date": "Date",
+      "time": "Time",
+      "location": "Location"
+    },
+    "events": {
+      "title": "Upcoming Events",
+      "umuganda": "Umuganda",
+      "youthLedCleanups": "Youth-Led Cleanups",
+      "carFreeDays": "Car-Free Days"
+    },
+    "guidelines": {
+      "title": "Sorting Guidelines",
+      "separateBins": {
+        "title": "Separate Recycling Bins",
+        "desc": "Dedicate separate bins for different types of recyclables (paper, ...)"
+      },
+      "clearLabeling": {
+        "title": "Clear Labeling",
+        "desc": "Label each bin clearly with the type of waste it is meant for..."
+      },
+      "foldFlatten": {
+        "title": "Fold or Flatten",
+        "desc": "When possible, flatten or fold cardboard boxes and plastic..."
+      }
+    },
+    "wasteCollections": {
+      "title": "All Requests",
+      "tabTitle": "Waste Collections",
+      "date": "Date",
+      "time": "Time",
+      "location": "Location",
+      "status": "Status",
+      "company": "Company",
+      "collections": "collections",
+      "noCollectionsFound": "No waste collections found",
+      "noCollectionsMessage": "Your waste collection requests will appear here",
+      "showing": "Showing {{shown}} of {{total}} collections",
+      "locationNotSpecified": "Location not specified",
+      "notAssigned": "Not assigned",
+      "filterByStatus": "Filter by status:",
+      "allStatuses": "All Statuses",
+      "noCollectionsWithStatus": "No collections found with status: {{status}}",
+      "tryDifferentStatus": "Try selecting a different status or view all collections",
+      "adminTitle": "Waste Collections Management",
+      "adminSubtitle": "Manage and track all waste collection requests",
+      "userSubtitle": "Track and manage your waste collection bookings",
+      "allWasteCollections": "All Waste Collections",
+      "collectionDetails": "Collection Details",
+      "pickupDate": "Pickup Date",
+      "timeSlot": "Time Slot",
+      "companyLocation": "Company Location",
+      "assignedCompany": "Assigned Company",
+      "customer": "Customer",
+      "customerLocation": "Customer Location",
+              "adminNotes": "Admin Notes",
+        "collectionId": "Collection ID",
+        "paymentStatus": "Payment Status",
+        "paymentAmount": "Payment Amount",
+        "paymentMethod": "Payment Method",
+        "transactionId": "Transaction ID",
+        "paymentDate": "Payment Date",
+        "statuses": {
+          "approved": "Approved",
+          "pending": "Pending",
+          "rejected": "Rejected",
+          "denied": "Rejected",
+          "completed": "Completed",
+          "cancelled": "Cancelled",
+          "unknown": "Unknown"
+        },
+        "paymentStatuses": {
+          "pending": "Pending",
+          "paid": "Paid",
+          "failed": "Failed",
+          "refunded": "Refunded",
+          "cancelled": "Cancelled"
+        },
+        "actions": "Actions",
+        "cancelConfirmation": "Are you sure you want to cancel this collection? This action cannot be undone.",
+        "cancelWarningMessage": "The collection will be permanently cancelled and removed from your list.",
+        "collectionCancelled": "Collection Cancelled",
+        "collectionCancelledMessage": "Your collection has been successfully cancelled.",
+        "cancellationSuccessfulMessage": "The collection has been removed from your list and the waste collection company has been notified.",
+        "cancellationFailedMessage": "There was an error cancelling your collection."
+    }
+  },
+  "recyclingCenter": {
+    "tabTitle": "Recycling Center",
+    "bookRecycling": "Book Recycling",
+    "date": "Date",
+    "time": "Time",
+    "location": "Location",
+    "status": "Status",
+    "center": "Recycling Center",
+    "wasteType": "Waste Type",
+    "bookings": "bookings",
+    "locationNotSpecified": "Location not specified",
+    "notAssigned": "Not Assigned",
+    "wasteTypeNotSpecified": "Not specified",
+    "noBookingsFound": "No recycling center bookings found",
+    "noBookingsWithStatus": "No bookings found with status: {{status}}",
+    "tryDifferentStatus": "Try selecting a different status filter or view all bookings",
+    "noBookingsMessage": "You haven't booked any recycling center visits yet. Start by scheduling your first visit!",
+    "cancelConfirmation": "Are you sure you want to cancel this booking? This action cannot be undone.",
+    "bookingCancelled": "Booking cancelled successfully!",
+    "bookingCancellationFailed": "Failed to cancel booking. Please try again.",
+    "actions": "Actions",
+    "confirmCancellation": "Confirm Cancellation",
+    "cancelWarning": "This action cannot be undone",
+    "cancelWarningMessage": "The booking will be permanently cancelled and removed from your list.",
+    "cancelling": "Cancelling...",
+    "confirmCancel": "Confirm Cancel",
+    "bookingCancelledMessage": "Your booking has been successfully cancelled.",
+    "cancellationSuccessful": "Cancellation Successful",
+    "cancellationSuccessfulMessage": "The booking has been removed from your list and the recycling center has been notified.",
+    "cancellationFailed": "Cancellation Failed",
+    "cancellationFailedMessage": "There was an error cancelling your booking.",
+    "errorOccurred": "An Error Occurred",
+    "statuses": {
+      "approved": "Approved",
+      "pending": "Pending",
+      "rejected": "Rejected",
+      "denied": "Denied",
+      "completed": "Completed",
+      "cancelled": "Cancelled",
+      "unknown": "Unknown"
+    }
+  },
+  "header": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "notifications": "Notifications",
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+  "sidebar": {
+    "search": "Search",
+    "sections": {
+      "home": "HOME",
+      "items": {
+        "dashboard": "Dashboard",
+        "wasteCollection": "Waste Collection",
+        "recyclingCenter": "Recycling center",
+        "communityEvents": "Community Events",
+        "educationMaterials": "Education Materials",
+        "users": "Users",
+        "companies": "Companies"
+      }
+    },
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+  "users": {
+    "title": "Users",
+    "subtitle": "Manage your users and their information",
+    "usersFound": "{{count}} users found",
+    "exportPDF": "Export PDF",
+    "registerNewUser": "Register New User",
+    "searchPlaceholder": "Search users by name or email...",
+    "noUsersFound": "No users found",
+    "noUsersMatch": "No users match your search \"{{query}}\"",
+    "table": {
+      "name": "Name",
+      "email": "Email",
+      "joinedDate": "Joined Date",
+      "action": "Actions",
+      "actions": {
+        "view": "View",
+        "edit": "Edit",
+        "delete": "Delete"
+      }
+    },
+    "modals": {
+      "success": {
+        "title": "Success",
+        "message": "Action completed successfully.",
+        "close": "Close"
+      },
+      "register": {
+        "title": "Register New User",
+        "subtitle": "Fill in the details to create a new user account",
+        "name": "Name",
+        "email": "Email Address",
+        "password": "Password",
+        "confirmPassword": "Confirm Password",
+        "cancel": "Cancel",
+        "submit": "Register User"
+      },
+      "view": {
+        "title": "User Details",
+        "name": "Name",
+        "email": "Email",
+        "userId": "User ID",
+        "joinedDate": "Joined Date",
+        "close": "Close"
+      },
+      "edit": {
+        "title": "Edit User",
+        "subtitle": "Update user information",
+        "name": "Name",
+        "email": "Email Address",
+        "cancel": "Cancel",
+        "save": "Save Changes"
+      },
+      "delete": {
+        "title": "Delete User",
+        "message": "Are you sure you want to delete {{name}}? This action cannot be undone.",
+        "cancel": "Cancel",
+        "confirm": "Delete"
+      }
+    },
+    "loading": "Loading users...",
+    "error": "Failed to fetch users. Please try again.",
+    "retry": "Retry",
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "showing": "Showing {{start}} to {{end}} of {{total}} results"
+    }
+  },
+  "collection": {
+    "totalCollections": "Total Collections",
+    "pendingCollections": "Pending Collections",
+    "totalWasteCollected": "Total Waste Collected",
+    "upcomingCollections": "Upcoming Collections",
+    "scheduleNew": "Schedule New Collection",
+    "wasteType": "Waste Type",
+    "quantity": "Quantity",
+    "location": "Location",
+    "date": "Date",
+    "time": "Time",
+    "status": {
+      "scheduled": "Scheduled",
+      "pending": "Pending",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    }
+  },
+  "communityEvents": {
+    "title": "Community Events",
+    "subtitle": "Discover and join environmental events in your community",
+    "searchPlaceholder": "Search events...",
+    "featuredEvents": "Featured Events",
+    "allEvents": "All Events",
+    "noEventsFound": "No events found",
+    "noEventsMatch": "Try adjusting your search or filter criteria",
+    "joinEvent": "Join Event",
+    "joined": "Joined",
+    "joinedEvent": "Successfully joined event!",
+    "participants": "participants",
+    "by": "by",
+    "categories": {
+      "all": "All Events",
+      "cleanup": "Cleanup",
+      "education": "Education",
+      "planting": "Tree Planting"
+    },
+    "createNew": "Create New Event",
+    "editEvent": "Edit Event",
+    "deleteEvent": "Delete Event",
+    "deleteConfirm": "Are you sure you want to delete this event? This action cannot be undone."
+  },
+  "educationMaterials": {
+    "title": "Education Materials",
+    "subtitle": "Learn about waste management, recycling, and environmental conservation",
+    "searchPlaceholder": "Search materials...",
+    "featuredMaterials": "Featured Materials",
+    "allMaterials": "All Materials",
+    "noMaterialsFound": "No materials found",
+    "noMaterialsMatch": "Try adjusting your search or filter criteria",
+    "startLearning": "Start Learning",
+    "learn": "Learn",
+    "readMore": "Read More",
+    "views": "views",
+    "by": "by",
+    "createNew": "Create New Material",
+    "editMaterial": "Edit Material",
+    "deleteMaterial": "Delete Material",
+    "deleteConfirm": "Are you sure you want to delete this material? This action cannot be undone.",
+    "categories": {
+      "all": "All Categories",
+      "waste-management": "Waste Management",
+      "recycling": "Recycling",
+      "composting": "Composting",
+      "lifestyle": "Sustainable Lifestyle",
+      "e-waste": "E-Waste",
+      "packaging": "Packaging",
+      "conservation": "Conservation",
+      "materials": "Materials"
+    },
+    "levels": {
+      "all": "All Levels",
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "types": {
+      "guide": "Guide",
+      "video": "Video",
+      "article": "Article"
+    }
+  },
+
+  "recyclingRequest": {
+    "title": "Recycling Requests",
+    "subtitle": "Manage and view all recycling center booking requests",
+    "totalRequests": "Total Requests",
+    "today": "Today",
+    "upcoming": "Upcoming",
+    "past": "Past",
+    "allRequests": "All Requests",
+    "refresh": "Refresh",
+    "loadingRequests": "Loading requests...",
+    "errorLoadingRequests": "Error Loading Requests",
+    "tryAgain": "Try Again",
+    "noRequestsFound": "No Requests Found",
+    "noRequestsMessage": "No recycling requests have been made yet.",
+    "noRequestsFiltered": "No {{filter}} recycling requests found.",
+    "accessDenied": "Access Denied",
+    "accessDeniedMessage": "You don't have permission to view this page.",
+    "date": "Date",
+    "time": "Time",
+    "location": "Location",
+    "contactInformation": "Contact Information",
+    "addressDetails": "Address Details",
+    "district": "District",
+    "sector": "Sector",
+    "cell": "Cell",
+    "street": "Street",
+    "notes": "Notes"
+  },
+  "bookingDetails": {
+    "title": "Booking Details",
+    "bookingId": "ID: #{{id}}",
+    "customerInformation": "Customer Information",
+    "fullName": "Full Name",
+    "email": "Email",
+    "phone": "Phone",
+    "bookingDetails": "Booking Details",
+    "dropoffDate": "Drop-off Date",
+    "timeSlot": "Time Slot",
+    "status": "Status",
+    "created": "Created",
+    "location": "Location",
+    "district": "District",
+    "sector": "Sector",
+    "cell": "Cell",
+    "street": "Street",
+    "wasteTypes": "Waste Types",
+    "noWasteTypesSpecified": "No waste types specified",
+    "pricingInformation": "Pricing Information",
+    "price": "Price",
+    "paymentConfirmation": "Payment Confirmation",
+    "paymentConfirmed": "Payment Confirmed",
+    "paymentPending": "Payment Pending",
+    "awaitingPaymentConfirmation": "Awaiting Payment Confirmation",
+    "statuses": {
+      "approved": "Approved",
+      "pending": "Pending",
+      "cancelled": "Cancelled"
+    }
+  },
+  "recyclingCenterBookings": {
+    "title": "Recycling Center Bookings",
+    "accessDenied": "Access Denied",
+    "accessDeniedMessage": "You don't have permission to view this page.",
+    "backToDashboard": "Back to Dashboard",
+    "totalBookings": "Total Bookings",
+    "error": "Error",
+    "searchPlaceholder": "Search bookings...",
+    "filters": {
+      "allStatus": "All Status",
+      "pending": "Pending",
+      "approved": "Approved",
+      "completed": "Completed",
+      "cancelled": "Cancelled",
+      "allDates": "All Dates",
+      "today": "Today",
+      "thisWeek": "This Week",
+      "thisMonth": "This Month"
+    },
+    "resultsCount": "{{filtered}} of {{total}} bookings",
+    "loading": "Loading bookings...",
+    "noBookingsFound": "No bookings found",
+    "noBookingsMessage": "No bookings have been made yet.",
+    "tryAdjustingFilters": "Try adjusting your filters or search terms.",
+    "tableHeaders": {
+      "customer": "Customer",
+      "contact": "Contact",
+      "location": "Location",
+      "dateTime": "Date & Time",
+      "wasteTypes": "Waste Types",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "noWasteTypesSpecified": "No waste types specified",
+    "statuses": {
+      "approved": "Approved",
+      "completed": "Completed",
+      "pending": "Pending",
+      "cancelled": "Cancelled",
+      "unknown": "Unknown"
+    },
+    "paymentStatuses": {
+      "confirmed": "Confirmed",
+      "declined": "Declined",
+      "awaitingConfirmation": "Awaiting Confirmation",
+      "paymentConfirmed": "Payment Confirmed",
+      "paymentPending": "Payment Pending",
+      "awaitingPaymentConfirmation": "Awaiting Payment Confirmation"
+    },
+    "actions": {
+      "details": "Details",
+      "approve": "Approve"
+    },
+    "approvalSuccess": "Booking approved successfully! Email sent to customer."
+  }
+} 
