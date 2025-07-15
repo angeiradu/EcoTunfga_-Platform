@@ -4,7 +4,7 @@
 Ecotunga Frontend is a modern web application built with React that provides an intuitive interface for users to connect with local farmers, browse products, and manage their sustainable agriculture needs. The application features a responsive design, multi-language support, and real-time updates.
 
 ## Repository
-[GitHub Repository](https://github.com/your-username/ecotunga)
+[GitHub Repository](https://github.com/angeiradu/EcoTunfga_-Platform)
 
 ## Tech Stack
 
