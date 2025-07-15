@@ -4,6 +4,23 @@
 
 ---
 
+### Steps
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/your-username/eco-tunga.git
+cd eco-tunga
+
+# 2. Install dependencies
+npm install
+
+# 3. Run the application
+npm run dev
+
+# 4. Open in your browser
+http://localhost:5173
+```
+
 ## 🌟 Main Features
 
 - 🗓️ **Waste Collection Scheduling** – Book pickup slots by date, time and location.
@@ -31,14 +48,17 @@
 
 ### ✅ Demonstrated Functionalities
 
-| Functionality                  | Tested With Various Data | Passed |
-|-------------------------------|---------------------------|--------|
-| Waste Pickup Scheduling       | ✅ Yes                    | ✅     |
-| Sorting Tips & Education      | ✅ Yes                    | ✅     |
-| Rewards System                | ✅ Yes                    | ✅     |
-| i18n Language Switching       | ✅ English, Kinyarwanda   | ✅     |
-| History & Leaderboard Display | ✅ Yes                    | ✅     |
-| Form Validation               | ✅ Empty & invalid input  | ✅     |
+| Functionality                     | Tested With Various Data | Passed |
+|----------------------------------|---------------------------|--------|
+| Waste Pickup Scheduling          | ✅ Yes                    | ✅     |
+| Sorting Tips & Education         | ✅ Yes                    | ✅     |
+| Rewards System                   | ✅ Yes                    | ✅     |
+| i18n Language Switching          | ✅ English, Kinyarwanda   | ✅     |
+| Recycling Facility Locator       | ✅ Yes                    | ✅     |
+| Community Event Participation    | ✅ Yes                    | ✅     |
+| Dynamic Pricing Functionality    | ✅ Simulated data sets     | ✅     |
+| Form Validation                  | ✅ Empty & invalid input  | ✅     |
+
 
 ### 🖼️ Screenshots
 
@@ -50,7 +70,7 @@
 
 ## ⚙️ Performance Test on Various Devices
 
-| Device           | OS           | Browser | Result |
+| Device           | OS          | Browser | Result |
 |------------------|--------------|---------|--------|
 | Android Phone    | Android 13   | Chrome  | ✅     |
 | Windows Laptop   | Windows 11   | Chrome  | ✅     |
@@ -61,13 +81,12 @@
 
 ## 📊 Analysis
 
-The system met almost all the original project goals:
+The system met  all the original project goals:
 
-- ✔️ Successfully implemented multilingual, user-friendly scheduling.
-- ✔️ Achieved high responsiveness and cross-platform compatibility.
-- ❗ Minor delays on low-spec devices.
-- ✅ Supervisor confirmed alignment with initial proposal objectives.
-
+✔️ Successfully implemented multilingual, user-friendly scheduling and sorting tools.
+✔️ Achieved high responsiveness and cross-platform compatibility.
+✔️ Community events and rewards enhanced engagement.
+  
 ---
 
 ## 💬 Discussion
@@ -80,11 +99,7 @@ The system met almost all the original project goals:
 
 ## 🌱 Recommendations & Future Work
 
-- 📲 **Add PWA/offline support** for users in rural areas.
-- 🔔 **Push Notifications** for reminders and cleanup events.
-- 📈 **Analytics Dashboard** for admins to track waste data.
-- 🧠 **AI-powered tips** based on user behavior.
-- 🌐 **API scalability** to support expansion to other regions.
+- 📲 **Add mobile money payment method.
 
 ---
 
@@ -103,20 +118,6 @@ The system met almost all the original project goals:
 🌐 Live App: http://62.171.173.62/login
 
 
-### Steps
 
-```bash
-# 1. Clone the repository
-git clone https://github.com/your-username/eco-tunga.git
-cd eco-tunga
-
-# 2. Install dependencies
-npm install
-
-# 3. Run the application
-npm run dev
-
-# 4. Open in your browser
-http://localhost:5173
 
 
