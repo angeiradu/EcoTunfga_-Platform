@@ -4,6 +4,15 @@
 
 ---
 
+## 💻 Installation Instructions
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- npm or yarn
+- Git
+
+---
 ### Steps
 
 ```bash
@@ -13,9 +22,13 @@ cd eco-tunga
 
 # 2. Install dependencies
 npm install
+# or if you prefer yarn:
+yarn install
 
 # 3. Run the application
 npm run dev
+# or
+yarn dev
 
 # 4. Open in your browser
 http://localhost:5173
@@ -68,17 +81,6 @@ http://localhost:5173
 
 ---
 
-## ⚙️ Performance Test on Various Devices
-
-| Device           | OS          | Browser | Result |
-|------------------|--------------|---------|--------|
-| Android Phone    | Android 13   | Chrome  | ✅     |
-| Windows Laptop   | Windows 11   | Chrome  | ✅     |
-| Low-end Laptop   | 4GB RAM      | Firefox | ⚠️ Slight delay |
-| iPhone 13        | iOS 17       | Safari  | ✅     |
-
----
-
 ## 📊 Analysis
 
 The system met  all the original project goals:
@@ -93,31 +95,16 @@ The system met  all the original project goals:
 
 - Key milestones like **internationalization**, **pickup scheduling**, and **rewards** were critical for user engagement.
 - Frontend and backend integration was smooth, improving user feedback cycles.
-- Supervisor emphasized the **gamification feature** (rewards + leaderboard) as a valuable motivation tool for users.
-
 ---
 
-## 🌱 Recommendations & Future Work
+## 🌱 Future Work
 
 - 📲 **Add mobile money payment method.
 
 ---
-
-## 💻 Installation Instructions
-
-### Prerequisites
-
-- Node.js (v14 or higher)
-- npm or yarn
-- Git
 
 ## 📹 Demo & Deployment
 
 🎥 Demo Video : https://youtu.be/Oj2Rgd2i3T4
 
 🌐 Live App: http://62.171.173.62/login
-
-
-
-
-
