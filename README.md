@@ -75,17 +75,17 @@ http://localhost:5173
 
 ### 🖼️ Screenshots
 
-- ![Waste Pickup Scheduling](assets/screenshots/bookwastepickup.png)
-- ![Recycling Facility Locator](assets/screenshots/bookingconfirmed.png)
-- ![Sorting Tips & Education](assets/screenshots/communityevent.png)
-- ![Community Event Participation](assets/screenshots/educationmaterials.png)
-- ![Rewards System](assets/screenshots/errormeassage.png)
-- ![i18n Language Switching](assets/screenshots/paymentmethod.png)
-- ![Dynamic Pricing Functionality](assets/screenshots/recyclingpoint.png)
-- ![Form Validation](assets/screenshots/recyclingbooking.png)
-- ![responsive design](assets/screenshots/kinyarwanda.png)
-- ![Form Validation](assets/screenshots/french.png)
-- ![responsive design](assets/screenshots/responsivedesign.png)
+- ![Waste Pickup Scheduling](assets/bookwastepickup.png)
+- ![Recycling Facility Locator](assets/bookingconfirmed.png)
+- ![Sorting Tips & Education](assets/communityevent.png)
+- ![Community Event Participation](assets/educationmaterials.png)
+- ![Rewards System](assets/errormeassage.png)
+- ![i18n Language Switching](assets/paymentmethod.png)
+- ![Dynamic Pricing Functionality](assets/recyclingpoint.png)
+- ![Form Validation](assets/recyclingbooking.png)
+- ![responsive design](assets/kinyarwanda.png)
+- ![Form Validation](assets/french.png)
+- ![responsive design](assets/responsivedesign.png)
 
 ---
 
