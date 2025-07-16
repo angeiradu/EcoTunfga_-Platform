@@ -75,9 +75,17 @@ http://localhost:5173
 
 ### 🖼️ Screenshots
 
-- ![Schedule Page](screenshots/schedule.png)
-- ![Sorting Tips](screenshots/sorting-tips.png)
-- ![Leaderboard](screenshots/leaderboard.png)
+- ![Waste Pickup Scheduling](screenshots/bookwastepickup.png)
+- ![Recycling Facility Locator](screenshots/bookingconfirmed.png)
+- ![Sorting Tips & Education](screenshots/communityevent.png)
+- ![Community Event Participation](screenshots/educationmaterials.png)
+- ![Rewards System](screenshots/errormeassage.png)
+- ![i18n Language Switching](screenshots/paymentmethod.png)
+- ![Dynamic Pricing Functionality](screenshots/recyclingpoint.png)
+- ![Form Validation](screenshots/recyclingbooking.png)
+- ![responsive design](screenshots/kinyarwanda.png)
+- ![Form Validation](screenshots/french.png)
+- ![responsive design](screenshots/responsivedesign.png)
 
 ---
 
