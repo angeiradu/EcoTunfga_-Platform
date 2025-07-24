@@ -80,7 +80,7 @@ http://localhost:5173
    Recycling Facility Locator
 - ![Recycling Facility Locator](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/recylingbooking.png)
 - ![Sorting Tips & Education](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/educationmaterials.png)
-- ![Community Event Participation](assets/educationmaterials.png)
+- ![Community Event Participation](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/communityevent.png)
 - ![Rewards System](assets/errormeassage.png)
 - ![i18n Language Switching](assets/paymentmethod.png)
 - ![Dynamic Pricing Functionality](assets/recyclingpoint.png)
