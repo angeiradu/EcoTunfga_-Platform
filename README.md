@@ -76,7 +76,8 @@ http://localhost:5173
 ### 🖼️ Screenshots
 
 - ![Waste Pickup Scheduling](assets/bookwastepickup.png)
-   Recycling Facility Locator
+
+  Recycling Facility Locator
 - ![Recycling Facility Locator](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/bookingconfirmed.png)
 - ![Sorting Tips & Education](assets/communityevent.png)
 - ![Community Event Participation](assets/educationmaterials.png)
