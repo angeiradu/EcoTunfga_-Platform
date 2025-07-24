@@ -75,18 +75,16 @@ http://localhost:5173
 
 ### 🖼️ Screenshots
 
-- ![Waste Pickup Scheduling](assets/bookwastepickup.png)
+- ![Waste Pickup Scheduling](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/bookwastepickup.png)
    Recycling Facility Locator
-- ![Recycling Facility Locator](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/bookingconfirmed.png)
-- ![Sorting Tips & Education](assets/communityevent.png)
-- ![Community Event Participation](assets/educationmaterials.png)
-- ![Rewards System](assets/errormeassage.png)
-- ![i18n Language Switching](assets/paymentmethod.png)
-- ![Dynamic Pricing Functionality](assets/recyclingpoint.png)
-- ![Form Validation](assets/recyclingbooking.png)
-- ![responsive design](assets/kinyarwanda.png)
-- ![Form Validation](assets/french.png)
-- ![responsive design](assets/responsivedesign.png)
+- ![Recycling Facility Locator](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/recylingbookings.png)
+- ![Sorting Tips & Education](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/educationmaterials.png)
+- ![Community Event Participation](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/communityevent.png)
+- ![Rewards System](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/recyclingpoint.png)
+- ![i18n Language Switching](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/french.png)
+![i18n Language Switching](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/kinyarwanda.png)
+- ![Form Validation](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/errormessage.png)
+- ![responsive design](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/responsivedesign.png)
 
 ---
 
