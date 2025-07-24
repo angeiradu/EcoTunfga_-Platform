@@ -83,6 +83,7 @@ http://localhost:5173
 - ![Community Event Participation](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/communityevent.png)
 - ![Rewards System](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/recyclingpoint.png)
 - ![i18n Language Switching](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/french.png)
+- ![i18n Language Switching](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/kinyarwanda.png)
 - ![Dynamic Pricing Functionality](assets/recyclingpoint.png)
 - ![Form Validation](assets/recyclingbooking.png)
 - ![responsive design](assets/kinyarwanda.png)
