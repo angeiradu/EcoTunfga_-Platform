@@ -79,7 +79,7 @@ http://localhost:5173
 - ![Waste Pickup Scheduling](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/bookwastepickup.png)
    Recycling Facility Locator
 - ![Recycling Facility Locator](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/recylingbooking.png)
-- ![Sorting Tips & Education](assets/communityevent.png)
+- ![Sorting Tips & Education](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/educationmaterials.png)
 - ![Community Event Participation](assets/educationmaterials.png)
 - ![Rewards System](assets/errormeassage.png)
 - ![i18n Language Switching](assets/paymentmethod.png)
