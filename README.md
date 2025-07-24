@@ -77,15 +77,21 @@ http://localhost:5173
 
   Book Waste picup 
 - ![Waste Pickup Scheduling](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/bookwastepickup.png)
-   Recycling Facility Locator
+  Recycling Facility Locator
 - ![Recycling Facility Locator](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/recylingbooking.png)
+Education materials
 - ![Sorting Tips & Education](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/educationmaterials.png)
+  Community events
 - ![Community Event Participation](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/communityevent.png)
+  Reward for recycling
 - ![Rewards System](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/recyclingpoint.png)
+  In French
 - ![i18n Language Switching](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/french.png)
+  In Kinyarwanda
 - ![i18n Language Switching](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/kinyarwanda.png)
-- ![Dynamic Pricing Functionality](assets/recyclingpoint.png)
+  Form validation
 - ![Form Validation](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/errormessage.png)
+  Responsive
 - ![responsive design](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/responsivedesign.png)
 
 ---
