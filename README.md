@@ -85,7 +85,7 @@ http://localhost:5173
 - ![i18n Language Switching](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/french.png)
 - ![i18n Language Switching](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/kinyarwanda.png)
 - ![Dynamic Pricing Functionality](assets/recyclingpoint.png)
-- ![Form Validation](assets/recyclingbooking.png)
+- ![Form Validation](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/errormessage.png)
 - ![responsive design](assets/kinyarwanda.png)
 - ![Form Validation](assets/french.png)
 - ![responsive design](assets/responsivedesign.png)
