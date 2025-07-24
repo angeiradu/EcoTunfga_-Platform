@@ -75,6 +75,7 @@ http://localhost:5173
 
 ### 🖼️ Screenshots
 
+  Book Waste picup 
 - ![Waste Pickup Scheduling](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/bookwastepickup.png)
    Recycling Facility Locator
 - ![Recycling Facility Locator](https://github.com/angeiradu/EcoTunfga_-Platform/blob/main/ecotunga_frontend/src/assets/bookingconfirmed.png)
