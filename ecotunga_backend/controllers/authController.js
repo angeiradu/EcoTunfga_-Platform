@@ -11,26 +11,23 @@ exports.register = async (req, res) => {
     console.error('Invalid role received:', userRole);
     return res.status(400).json({ message: 'Invalid role specified.' });
   }
-
-  try {  
+  try {
     const existingUser = await db('users').where({ email }).first();
     if (existingUser) {
       return res.status(400).json({ message: 'Email already exists' });
     }
-
     const hashedPassword = await bcrypt.hash(password, 10);
-    const id = uuidv4(); 
+    const id = uuidv4();
     const insertData = {
       id,
       name,
       email,
       password: hashedPassword,
       role: userRole
-    }; 
+    };
     const insertResult = await db('users').insert(insertData);
     const insertedUser = await db('users').where('id', id).first();
     if (userRole === 'waste_collector' || userRole === 'recycling_center') {
-      
       try {
         const [dbNameRow] = await db.raw('SELECT DATABASE() as dbname');
         const dbName = dbNameRow[0]?.dbname || dbNameRow[0] || 'unknown';
@@ -49,7 +46,7 @@ exports.register = async (req, res) => {
         street: 'Unknown',
         amount_per_month: 0,
         type: userRole
-      };     
+      };
       try {
         const [companyId] = await db('companies').insert(companyData);
         const createdCompany = await db('companies').where({ id: companyId }).first();

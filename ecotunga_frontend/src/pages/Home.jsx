@@ -1,26 +1,44 @@
 // Home.jsx
 import React, { useState, useEffect } from 'react';
-import { Calendar, Users, Truck, RefreshCcw, Clock, MapPin, CheckCircle, Info, Tag, FileText, XCircle, Plus, Phone, Star, TrendingUp, ArrowRight } from 'lucide-react';
+import { Calendar, Users, Truck, RefreshCcw, Clock, MapPin, CheckCircle, Tag, FileText, XCircle, Plus, Phone, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../contexts/AuthContext';
 import { getDashboardStats } from '../services/userApi';
 import { wasteCollectionApi } from '../services/wasteCollectionApi';
-import { getRecyclingCenterBookingsByCompany, getUserRecyclingCenterBookings, getAllRecyclingCenterBookings, getUserPoints } from '../services/recyclingCenterApi';
-import { communityEventApi } from '../services/communityEventApi';
+import { getRecyclingCenterBookingsByCompany, getUserRecyclingCenterBookings, getAllRecyclingCenterBookings } from '../services/recyclingCenterApi';
+
 import { Link, useNavigate } from 'react-router-dom';
 
 // Function to transform waste collection data into activities (moved outside component)
+// Helper function to safely parse dates
+const parseDate = (dateString) => {
+  if (!dateString) return null;
+  
+  let date;
+  
+  // Handle ISO date strings (like "2026-10-09T00:00:00.000Z")
+  if (dateString.includes('T') || dateString.includes('Z')) {
+    date = new Date(dateString);
+  } else {
+    // Handle simple date strings (like "2026-10-09")
+    const [year, month, day] = dateString.split('-').map(Number);
+    date = new Date(year, month - 1, day); // month is 0-indexed
+  }
+  
+  return isNaN(date.getTime()) ? null : date;
+};
+
 const transformCollectionsToActivities = (collectionsData, t) => {
   if (!Array.isArray(collectionsData) || collectionsData.length === 0) {
     return [];
   }
 
   return collectionsData.slice(0, 7).map((collection) => {
-    const pickupDate = new Date(collection.pickup_date);
-    const formattedDate = pickupDate.toLocaleDateString('en-US', {
+    const pickupDate = parseDate(collection.pickup_date);
+    const formattedDate = pickupDate ? pickupDate.toLocaleDateString('en-US', {
       day: 'numeric',
       month: 'short'
-    });
+    }) : 'N/A';
 
     let activityLabel = '';
     let link = false;
@@ -86,13 +104,7 @@ export default function Home() {
   const [nextDropoff, setNextDropoff] = useState(null);
   const [dropoffLoading, setDropoffLoading] = useState(true);
   const [dropoffError, setDropoffError] = useState('');
-  const [events, setEvents] = useState([]);
-  const [eventsLoading, setEventsLoading] = useState(true);
-  const [eventsError, setEventsError] = useState('');
-  const [userPoints, setUserPoints] = useState({
-    total_points: 0
-  });
-  const [pointsLoading, setPointsLoading] = useState(true);
+
 
   useEffect(() => {
     const fetchCollections = async () => {
@@ -171,7 +183,7 @@ export default function Home() {
           // Debug logging
           console.log('Raw bookings:', bookings);
           console.log('Now:', now);
-          bookings.forEach(b => console.log('Booking date:', b.dropoff_date, 'Parsed:', new Date(b.dropoff_date)));
+          bookings.forEach(b => console.log('Booking date:', b.dropoff_date, 'Parsed:', parseDate(b.dropoff_date)));
           
           // Find the next upcoming booking - use date-only comparison to avoid timezone issues
           const today = new Date();
@@ -179,21 +191,27 @@ export default function Home() {
           
           const upcoming = bookings
             .filter(b => {
-              const bookingDate = new Date(b.dropoff_date);
+              const bookingDate = parseDate(b.dropoff_date);
+              if (!bookingDate) return false;
               const bookingDateOnly = new Date(bookingDate.getFullYear(), bookingDate.getMonth(), bookingDate.getDate());
               console.log('Booking date only:', bookingDateOnly, 'Today:', today, 'Is upcoming:', bookingDateOnly >= today);
               return bookingDateOnly >= today;
             })
-            .sort((a, b) => new Date(a.dropoff_date) - new Date(b.dropoff_date));
+            .sort((a, b) => {
+              const dateA = parseDate(a.dropoff_date);
+              const dateB = parseDate(b.dropoff_date);
+              if (!dateA || !dateB) return 0;
+              return dateA - dateB;
+            });
           
           console.log('Upcoming bookings after filter:', upcoming);
           
           if (upcoming.length > 0) {
             const next = upcoming[0];
-            const bookingDate = new Date(next.dropoff_date);
-            const formattedDate = bookingDate.toLocaleDateString('en-US', {
+            const bookingDate = parseDate(next.dropoff_date);
+            const formattedDate = bookingDate ? bookingDate.toLocaleDateString('en-US', {
               weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
-            });
+            }) : 'N/A';
             setNextDropoff({
               hasUpcoming: true,
               dropoff: {
@@ -312,43 +330,12 @@ export default function Home() {
       }
     };
 
-    const fetchEvents = async () => {
-      try {
-        setEventsLoading(true);
-        const response = await communityEventApi.getAllEvents({ featured: true });
-        setEvents(response.events || []);
-      } catch (err) {
-        console.error('Error fetching events:', err);
-        setEventsError(`Failed to load events: ${err.response?.data?.error || err.message}`);
-        setEvents([]);
-      } finally {
-        setEventsLoading(false);
-      }
-    };
-
-    const fetchUserPoints = async () => {
-      try {
-        setPointsLoading(true);
-        const response = await getUserPoints();
-        setUserPoints(response);
-      } catch (err) {
-        console.error('Error fetching user points:', err);
-        setUserPoints({
-          total_points: 0
-        });
-      } finally {
-        setPointsLoading(false);
-      }
-    };
-
     if (user) {
       fetchCollections();
       fetchNextPickup();
       fetchNextDropoff();
       fetchDashboardStats();
-      fetchEvents();
       fetchRecyclingBookings(); // Fetch recycling bookings for all users
-      fetchUserPoints(); // Fetch user points
     }
   }, [user, t]);
 
@@ -369,7 +356,7 @@ export default function Home() {
 
   // Enhanced waste collection bar chart data with better formatting and realistic values
   const wasteData = [
-    { month: 'Sep 2024', thisPeriod: 156, lastPeriod: 142, growth: '+9.9%' },
+    { month: 'Sep 2024', thisPeriod: 50, lastPeriod: 40, growth: '+9.9%' },
     { month: 'Oct 2024', thisPeriod: 189, lastPeriod: 165, growth: '+14.5%' },
     { month: 'Nov 2024', thisPeriod: 203, lastPeriod: 178, growth: '+14.0%' },
     { month: 'Dec 2024', thisPeriod: 167, lastPeriod: 195, growth: '-14.4%' },
@@ -454,9 +441,9 @@ export default function Home() {
       details: t('home.stats.viewDetails'),
     },
     {
-      title: t('home.stats.totalAmount'),
+      title: 'Companies',
       value: statsLoading ? '...' : dashboardStats.companies.toString(),
-      icon: <Tag className="w-6 h-6 text-teal-500" />,
+      icon: <Tag className="w-6 h-6 text-teal-500" />, 
       details: t('home.stats.viewDetails'),
     },
     {
@@ -467,8 +454,8 @@ export default function Home() {
     },
     {
       title: t('home.stats.totalRecycledMaterials'),
-      value: statsLoading ? '...' : (dashboardStats.wasteCollectionsByStatus.approved || 0).toString(),
-      icon: <RefreshCcw className="w-6 h-6 text-teal-500" />,
+      value: recyclingLoading ? '...' : recyclingBookings.length.toString(),
+      icon: <RefreshCcw className="w-6 h-6 text-teal-500" />, 
       details: t('home.stats.viewDetails'),
     },
   ];
@@ -499,18 +486,21 @@ export default function Home() {
   // ];
 
   return (
-    <div className="p-4 sm:p-6 lg:p-8 bg-gray-50 min-h-screen">
+    <div className="bg-gray-50 min-h-screen">
       {/* Header */}
-      <h1 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">{t('home.dashboard')}</h1>
+      <h1 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-2">{t('home.dashboard')}</h1>
       
       {/* Banner for users to learn about sorting waste and earning rewards */}
       {user?.role === 'user' && (
         <div className="mb-6">
           <div className="bg-gradient-to-r from-green-400 to-green-600 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between shadow-md">
             <div className="flex-1 mr-4">
-              <marquee direction="right" style={{ color: 'white', fontSize: '1.125rem', fontWeight: '600', marginBottom: '0.5rem' }}>
-                {t('home.bannerMessage')}
-              </marquee>
+              {/* Replaced <marquee> with accessible scrolling div */}
+              <div className="overflow-hidden whitespace-nowrap" style={{ height: '1.5em', marginBottom: '0.5rem' }} aria-label={t('home.bannerMessage')}>
+                <div className="inline-block animate-scroll-text text-white text-lg font-semibold" style={{ willChange: 'transform' }}>
+                  {t('home.bannerMessage')}
+                </div>
+              </div>
             </div>
             <a
               href="/education"
@@ -524,7 +514,7 @@ export default function Home() {
       
       {/* Error Display for Collections */}
       {error && (
-        <div className="mb-6 bg-red-50 border border-red-200 rounded-lg p-4">
+        <div className="mb-2 bg-red-50 border border-red-200 rounded-lg p-4">
           <div className="flex">
             <div className="flex-shrink-0">
               <XCircle className="h-5 w-5 text-red-400" />
@@ -539,27 +529,50 @@ export default function Home() {
       
       {/* Stats Cards - Only show for admin users */}
       {user?.role === 'admin' && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8">
-          {stats.map((stat, idx) => (
-            <div key={idx} className="bg-white rounded-xl shadow-sm p-4 sm:p-6 flex flex-col gap-2">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="bg-teal-50 rounded-lg p-2 flex items-center justify-center">
-                  {stat.icon}
+        <>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-6 sm:mb-8">
+            {stats.map((stat, idx) => {
+              let onClick = undefined;
+              let extraClass = '';
+              if (stat.title === t('home.stats.users')) {
+                onClick = () => navigate('/users');
+                extraClass = ' cursor-pointer hover:shadow-md transition-shadow';
+              } else if (stat.title === 'Companies') {
+                onClick = () => navigate('/companies');
+                extraClass = ' cursor-pointer hover:shadow-md transition-shadow';
+              } else if (stat.title === t('home.stats.totalWastePickups')) {
+                onClick = () => navigate('/waste-collections');
+                extraClass = ' cursor-pointer hover:shadow-md transition-shadow';
+              } else if (stat.title === t('home.stats.totalRecycledMaterials')) {
+                onClick = () => navigate('/recycling-bookings');
+                extraClass = ' cursor-pointer hover:shadow-md transition-shadow';
+              }
+              return (
+                <div
+                  key={idx}
+                  className={`bg-white rounded-xl shadow-sm p-4 sm:p-6 flex flex-col gap-2${extraClass}`}
+                  onClick={onClick}
+                >
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="bg-teal-50 rounded-lg p-2 flex items-center justify-center">
+                      {stat.icon}
+                    </div>
+                    <span className="text-xs text-gray-500 font-medium">{stat.title}</span>
+                  </div>
+                  <div className="text-xl sm:text-2xl font-bold text-gray-900">{stat.value}</div>
+                  <button className="mt-2 text-xs text-teal-600 font-semibold flex items-center gap-1 hover:underline">
+                    {stat.details}
+                    <span className="ml-1">&rarr;</span>
+                  </button>
                 </div>
-                <span className="text-xs text-gray-500 font-medium">{stat.title}</span>
-              </div>
-              <div className="text-xl sm:text-2xl font-bold text-gray-900">{stat.value}</div>
-              <button className="mt-2 text-xs text-teal-600 font-semibold flex items-center gap-1 hover:underline">
-                {stat.details}
-                <span className="ml-1">&rarr;</span>
-              </button>
-            </div>
-          ))}
-        </div>
+              );
+            })}
+          </div>
+        </>
       )}
 
       {/* Waste Collection Stats Cards for Admin Users */}
-      {user?.role === 'admin' && !loading && (
+      {user?.role === 'admins' && !loading && (
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <div 
             className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 cursor-pointer"
@@ -652,7 +665,7 @@ export default function Home() {
           >
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-500 text-sm font-medium">Total Requests</p>
+                <p className="text-gray-500 text-sm font-medium">{t('recyclingRequest.totalRequests')}</p>
                 <p className="text-3xl font-bold text-gray-800">{getCollectionsCount()}</p>
               </div>
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
@@ -667,7 +680,7 @@ export default function Home() {
           >
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-500 text-sm font-medium">Pending</p>
+                <p className="text-gray-500 text-sm font-medium">{t('home.wasteCollections.statuses.pending')}</p>
                 <p className="text-3xl font-bold text-yellow-600">
                   {getCollectionsByStatus('pending')}
                 </p>
@@ -684,7 +697,7 @@ export default function Home() {
           >
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-500 text-sm font-medium">Approved</p>
+                <p className="text-gray-500 text-sm font-medium">{t('home.wasteCollections.statuses.approved')}</p>
                 <p className="text-3xl font-bold text-green-600">
                   {getCollectionsByStatus('approved')}
                 </p>
@@ -701,7 +714,7 @@ export default function Home() {
           >
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-500 text-sm font-medium">Denied</p>
+                <p className="text-gray-500 text-sm font-medium">{t('home.wasteCollections.statuses.denied')}</p>
                 <p className="text-3xl font-bold text-red-600">
                   {getCollectionsByStatus('denied')}
                 </p>
@@ -814,7 +827,7 @@ export default function Home() {
       )}
 
       {/* Main Content Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 mb-2 sm:mb-2">
         {/* Chart & Activity */}
         <div className="lg:col-span-2 flex flex-col gap-4 sm:gap-6">
           {/* Book Waste Collection Button - Only show for users with role 'user' */}
@@ -1405,7 +1418,7 @@ export default function Home() {
           )}
 
           {/* Upcoming Events - Only show for regular users */}
-          {user?.role === 'user' && (
+          {/* {user?.role === 'user' && (
             <div className="bg-white rounded-xl shadow-sm p-4 sm:p-6">
               <h3 className="text-md font-semibold text-gray-900 mb-3">{t('home.events.title')}</h3>
               {eventsLoading ? (
@@ -1452,13 +1465,13 @@ export default function Home() {
                 </div>
               )}
             </div>
-          )}
+          )} */}
         </div>
       </div>
       {/* Recycling Center Dashboard - Only show for users with role 'recycling_center' */}
       {user?.role === 'recycling_center' && (
-        <div className="mt-8">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">{t('recyclingCenter.dashboard')}</h2>
+        <div className="">
+          {/* <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">{t('recyclingCenter.dashboard')}</h2> */}
           
           {/* Error Display for Recycling Bookings */}
           {recyclingError && (
@@ -1509,10 +1522,14 @@ export default function Home() {
                       <p className="text-sm font-medium text-gray-600">Today's Bookings</p>
                       <p className="text-2xl font-bold text-gray-900">
                         {recyclingLoading ? '...' : (() => {
-                          const today = new Date().toISOString().split('T')[0];
-                          return recyclingBookings.filter(booking => 
-                            booking.dropoff_date === today
-                          ).length;
+                          const today = new Date();
+                          const todayStr = today.toISOString().split('T')[0];
+                          return recyclingBookings.filter(booking => {
+                            if (!booking.dropoff_date) return false;
+                            const bookingDate = new Date(booking.dropoff_date);
+                            const bookingDateStr = bookingDate.toISOString().split('T')[0];
+                            return bookingDateStr === todayStr;
+                          }).length;
                         })()}
                       </p>
                       <p className="text-xs text-blue-600 mt-1">Active today</p>
@@ -1538,10 +1555,11 @@ export default function Home() {
                           const endOfWeek = new Date(startOfWeek);
                           endOfWeek.setDate(startOfWeek.getDate() + 6);
                           
-                          return recyclingBookings.filter(booking => {
-                            const bookingDate = new Date(booking.dropoff_date);
-                            return bookingDate >= startOfWeek && bookingDate <= endOfWeek;
-                          }).length;
+                                                  return recyclingBookings.filter(booking => {
+                          if (!booking.dropoff_date) return false;
+                          const bookingDate = new Date(booking.dropoff_date);
+                          return bookingDate >= startOfWeek && bookingDate <= endOfWeek;
+                        }).length;
                         })()}
                       </p>
                       <p className="text-xs text-purple-600 mt-1">Scheduled</p>
@@ -1561,10 +1579,14 @@ export default function Home() {
                       <p className="text-sm font-medium text-gray-600">Capacity</p>
                       <p className="text-2xl font-bold text-gray-900">
                         {recyclingLoading ? '...' : (() => {
-                          const today = new Date().toISOString().split('T')[0];
-                          const todayBookings = recyclingBookings.filter(booking => 
-                            booking.dropoff_date === today
-                          ).length;
+                          const today = new Date();
+                          const todayStr = today.toISOString().split('T')[0];
+                          const todayBookings = recyclingBookings.filter(booking => {
+                            if (!booking.dropoff_date) return false;
+                            const bookingDate = new Date(booking.dropoff_date);
+                            const bookingDateStr = bookingDate.toISOString().split('T')[0];
+                            return bookingDateStr === todayStr;
+                          }).length;
                           const capacity = 50; // Assuming 50 bookings per day capacity
                           return Math.round((todayBookings / capacity) * 100);
                         })()}%
@@ -1631,9 +1653,12 @@ export default function Home() {
                         targetDate.setDate(startOfWeek.getDate() + idx);
                         const targetDateStr = targetDate.toISOString().split('T')[0];
                         
-                        return recyclingBookings.filter(booking => 
-                          booking.dropoff_date === targetDateStr
-                        ).length;
+                        return recyclingBookings.filter(booking => {
+                          if (!booking.dropoff_date) return false;
+                          const bookingDate = new Date(booking.dropoff_date);
+                          const bookingDateStr = bookingDate.toISOString().split('T')[0];
+                          return bookingDateStr === targetDateStr;
+                        }).length;
                       })();
                       
                       // Enhanced data with realistic targets and performance
@@ -1745,9 +1770,12 @@ export default function Home() {
                             targetDate.setDate(startOfWeek.getDate() + idx);
                             const targetDateStr = targetDate.toISOString().split('T')[0];
                             
-                            return recyclingBookings.filter(booking => 
-                              booking.dropoff_date === targetDateStr
-                            ).length;
+                            return recyclingBookings.filter(booking => {
+                              if (!booking.dropoff_date) return false;
+                              const bookingDate = new Date(booking.dropoff_date);
+                              const bookingDateStr = bookingDate.toISOString().split('T')[0];
+                              return bookingDateStr === targetDateStr;
+                            }).length;
                           })();
                           return sum + bookings;
                         }, 0);
@@ -1768,9 +1796,12 @@ export default function Home() {
                             targetDate.setDate(startOfWeek.getDate() + idx);
                             const targetDateStr = targetDate.toISOString().split('T')[0];
                             
-                            return recyclingBookings.filter(booking => 
-                              booking.dropoff_date === targetDateStr
-                            ).length;
+                            return recyclingBookings.filter(booking => {
+                              if (!booking.dropoff_date) return false;
+                              const bookingDate = new Date(booking.dropoff_date);
+                              const bookingDateStr = bookingDate.toISOString().split('T')[0];
+                              return bookingDateStr === targetDateStr;
+                            }).length;
                           })();
                           return sum + bookings;
                         }, 0);
@@ -1792,9 +1823,12 @@ export default function Home() {
                             targetDate.setDate(startOfWeek.getDate() + idx);
                             const targetDateStr = targetDate.toISOString().split('T')[0];
                             
-                            return recyclingBookings.filter(booking => 
-                              booking.dropoff_date === targetDateStr
-                            ).length;
+                            return recyclingBookings.filter(booking => {
+                              if (!booking.dropoff_date) return false;
+                              const bookingDate = new Date(booking.dropoff_date);
+                              const bookingDateStr = bookingDate.toISOString().split('T')[0];
+                              return bookingDateStr === targetDateStr;
+                            }).length;
                           })();
                           return sum + bookings;
                         }, 0);
@@ -1809,12 +1843,6 @@ export default function Home() {
                         const today = new Date();
                         const dayOfWeek = today.getDay();
                         const targetBookings = [18, 20, 22, 19, 21, 15, 12][dayOfWeek];
-                        const todayBookings = recyclingLoading ? 0 : (() => {
-                          const todayStr = today.toISOString().split('T')[0];
-                          return recyclingBookings.filter(booking => 
-                            booking.dropoff_date === todayStr
-                          ).length;
-                        })();
                         return targetBookings;
                       })()}
                     </div>
@@ -1847,7 +1875,7 @@ export default function Home() {
                 ) : recyclingBookings.length > 0 ? (
                   <div className="space-y-4">
                     {recyclingBookings.slice(0, 5).map((booking) => {
-                      const bookingDate = new Date(booking.dropoff_date);
+                      const bookingDate = booking.dropoff_date ? new Date(booking.dropoff_date) : new Date();
                       const formattedDate = bookingDate.toLocaleDateString('en-US', {
                         weekday: 'short',
                         month: 'short',
@@ -1855,14 +1883,14 @@ export default function Home() {
                       });
                       
                       return (
-                        <div key={booking.id} className="flex items-center justify-between p-4 border border-gray-100 rounded-lg hover:bg-gray-50 transition-colors">
+                        <div key={booking.id || Math.random()} className="flex items-center justify-between p-4 border border-gray-100 rounded-lg hover:bg-gray-50 transition-colors">
                           <div className="flex items-center space-x-4">
                             <div className="w-10 h-10 bg-teal-100 rounded-full flex items-center justify-center">
                               <Users className="w-5 h-5 text-teal-600" />
                             </div>
                             <div>
                               <p className="font-medium text-gray-900">
-                                {booking.user_name} {booking.user_last_name}
+                                {booking.user_name || 'Unknown'} {booking.user_last_name || ''}
                               </p>
                               <p className="text-sm text-gray-500">
                                 {booking.sector}, {booking.district}
@@ -1871,7 +1899,7 @@ export default function Home() {
                           </div>
                           <div className="text-right">
                             <p className="text-sm font-medium text-gray-900">{formattedDate}</p>
-                            <p className="text-xs text-gray-500">{booking.time_slot}</p>
+                            <p className="text-xs text-gray-500">{booking.time_slot || 'TBD'}</p>
                             <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
                               Confirmed
                             </span>
@@ -1905,26 +1933,30 @@ export default function Home() {
                     </div>
                   </div>
                 ) : (() => {
-                  const today = new Date().toISOString().split('T')[0];
-                  const todayBookings = recyclingBookings.filter(booking => 
-                    booking.dropoff_date === today
-                  );
+                  const today = new Date();
+                  const todayStr = today.toISOString().split('T')[0];
+                  const todayBookings = recyclingBookings.filter(booking => {
+                    if (!booking.dropoff_date) return false;
+                    const bookingDate = new Date(booking.dropoff_date);
+                    const bookingDateStr = bookingDate.toISOString().split('T')[0];
+                    return bookingDateStr === todayStr;
+                  });
                   
                   return todayBookings.length > 0 ? (
                     <div className="space-y-3">
                       {todayBookings.map((booking) => (
-                        <div key={booking.id} className="flex items-center gap-3 p-3 rounded-lg bg-gray-50">
+                        <div key={booking.id || Math.random()} className="flex items-center gap-3 p-3 rounded-lg bg-gray-50">
                           <div className="w-8 h-8 bg-teal-100 rounded-lg flex items-center justify-center">
                             <Clock className="w-4 h-4 text-teal-600" />
                           </div>
                           <div className="flex-1 min-w-0">
-                            <p className="text-sm font-medium text-gray-900 truncate">
-                              {booking.user_name} {booking.user_last_name}
-                            </p>
-                            <p className="text-xs text-gray-500">{booking.time_slot}</p>
-                            <p className="text-xs text-gray-500 truncate">
-                              {booking.sector}, {booking.district}
-                            </p>
+                                                          <p className="text-sm font-medium text-gray-900 truncate">
+                                {booking.user_name || 'Unknown'} {booking.user_last_name || ''}
+                              </p>
+                                                          <p className="text-xs text-gray-500">{booking.time_slot || 'TBD'}</p>
+                              <p className="text-xs text-gray-500 truncate">
+                                {booking.sector || 'Unknown'}, {booking.district || 'Unknown'}
+                              </p>
                           </div>
                         </div>
                       ))}
@@ -1950,6 +1982,7 @@ export default function Home() {
                 ) : (() => {
                   const today = new Date();
                   const upcomingBookings = recyclingBookings.filter(booking => {
+                    if (!booking.dropoff_date) return false;
                     const bookingDate = new Date(booking.dropoff_date);
                     return bookingDate > today;
                   }).slice(0, 3);
@@ -1957,19 +1990,19 @@ export default function Home() {
                   return upcomingBookings.length > 0 ? (
                     <div className="space-y-3">
                       {upcomingBookings.map((booking) => {
-                        const bookingDate = new Date(booking.dropoff_date);
+                        const bookingDate = booking.dropoff_date ? new Date(booking.dropoff_date) : new Date();
                         const daysUntil = Math.ceil((bookingDate - today) / (1000 * 60 * 60 * 24));
                         
                         return (
-                          <div key={booking.id} className="flex items-center gap-3 p-3 rounded-lg bg-blue-50">
+                          <div key={booking.id || Math.random()} className="flex items-center gap-3 p-3 rounded-lg bg-blue-50">
                             <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
                               <Calendar className="w-4 h-4 text-blue-600" />
                             </div>
                             <div className="flex-1 min-w-0">
                               <p className="text-sm font-medium text-gray-900 truncate">
-                                {booking.user_name} {booking.user_last_name}
+                                {booking.user_name || 'Unknown'} {booking.user_last_name || ''}
                               </p>
-                              <p className="text-xs text-gray-500">{booking.time_slot}</p>
+                              <p className="text-xs text-gray-500">{booking.time_slot || 'TBD'}</p>
                               <p className="text-xs text-blue-600 font-medium">
                                 {daysUntil === 1 ? 'Tomorrow' : `In ${daysUntil} days`}
                               </p>
@@ -1995,6 +2028,7 @@ export default function Home() {
                     <span className="text-sm font-semibold text-gray-900">
                       {recyclingLoading ? '...' : (() => {
                         const lastWeek = recyclingBookings.filter(booking => {
+                          if (!booking.dropoff_date) return false;
                           const bookingDate = new Date(booking.dropoff_date);
                           const weekAgo = new Date();
                           weekAgo.setDate(weekAgo.getDate() - 7);
@@ -2051,52 +2085,7 @@ export default function Home() {
         </div>
       )}
 
-      {/* Points Display Card - Only show for users with role 'user' */}
-      {user?.role === 'user' && !pointsLoading && (
-        <div className="mb-8">
-          <div className="bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl p-6 shadow-lg border border-purple-100">
-            <div className="flex items-center justify-between">
-              <div className="flex-1">
-                <div className="flex items-center gap-3 mb-2">
-                  <Star className="w-6 h-6 text-yellow-300" />
-                  <h2 className="text-xl font-bold text-white">Recycling Points</h2>
-                </div>
-                <p className="text-purple-100 text-sm mb-4">
-                  Earn points by properly sorting your recyclables
-                </p>
-                <div className="grid grid-cols-1 gap-4">
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-white">{userPoints.total_points}</div>
-                    <div className="text-xs text-purple-200">Total Points</div>
-                    <div className="text-xs text-yellow-200 mt-2">100 points to unlock a 1,000 RWF bonus!</div>
-                  </div>
-                </div>
-              </div>
-              <div className="hidden sm:block">
-                <TrendingUp className="w-16 h-16 text-purple-200" />
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
 
-      {/* Loading state for points */}
-      {user?.role === 'user' && pointsLoading && (
-        <div className="mb-8">
-          <div className="bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl p-6 shadow-lg border border-purple-100">
-            <div className="animate-pulse">
-              <div className="h-6 bg-purple-400 rounded w-1/3 mb-2"></div>
-              <div className="h-4 bg-purple-400 rounded w-1/2 mb-4"></div>
-              <div className="grid grid-cols-1 gap-4">
-                <div className="text-center">
-                  <div className="h-8 bg-purple-400 rounded mb-1"></div>
-                  <div className="h-3 bg-purple-400 rounded w-3/4 mx-auto"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Loading state for stats cards */}
     </div>

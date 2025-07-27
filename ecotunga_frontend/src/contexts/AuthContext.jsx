@@ -7,6 +7,8 @@ export function useAuth() {
   return useContext(AuthContext);
 }
 
+export { AuthContext };
+
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -20,9 +22,11 @@ export function AuthProvider({ children }) {
           // Token is invalid, logout user
           localStorage.removeItem('token');
           setUser(null);
-          // Redirect to login page with current path
+          // Redirect to login page with current path, but only if not already on /login or personal-info
           const currentPath = window.location.pathname;
-          window.location.href = `/login?from=${encodeURIComponent(currentPath)}`;
+          if (currentPath !== '/login' && currentPath !== '/personal-info') {
+            window.location.href = `/login?from=${encodeURIComponent(currentPath)}`;
+          }
         }
         return Promise.reject(error);
       }

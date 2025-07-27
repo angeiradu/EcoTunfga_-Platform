@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../contexts/AuthContext';
-import { getRecyclingCenterBookingsByCompany, approveRecyclingCenterBooking } from '../services/recyclingCenterApi';
+import { getRecyclingCenterBookingsByCompany, getAllRecyclingCenterBookings, approveRecyclingCenterBooking } from '../services/recyclingCenterApi';
 import { Calendar, Clock, MapPin, User, Phone, Mail, Search, ArrowLeft, XCircle, CheckCircle, Hourglass, Ban } from 'lucide-react';
 import { Link, useSearchParams } from 'react-router-dom';
 import ApprovalModal from '../components/ApprovalModal';
@@ -38,7 +38,12 @@ export default function RecyclingCenterBookings() {
       try {
         setLoading(true);
         setError('');
-        const response = await getRecyclingCenterBookingsByCompany();
+        let response;
+        if (user?.role === 'admin') {
+          response = await getAllRecyclingCenterBookings();
+        } else {
+          response = await getRecyclingCenterBookingsByCompany();
+        }
         setBookings(response.bookings || response || []);
       } catch (err) {
         const errorMessage = err.response?.data?.error || err.message || 'Failed to load bookings';
@@ -48,7 +53,7 @@ export default function RecyclingCenterBookings() {
         setLoading(false);
       }
     };
-    if (user?.role === 'recycling_center') {
+    if (user?.role === 'recycling_center' || user?.role === 'admin') {
       fetchBookings();
     }
   }, [user]);
@@ -62,24 +67,35 @@ export default function RecyclingCenterBookings() {
       booking.sector?.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesStatus = statusFilter === 'all' || booking.status === statusFilter;
     const matchesDate = dateFilter === 'all' || (() => {
-      const today = new Date().toISOString().split('T')[0];
-      const bookingDate = booking.dropoff_date;
+      // Parse booking.dropoff_date as local date (same as formatDate)
+      let bookingDateObj;
+      if (booking.dropoff_date.includes('T') || booking.dropoff_date.includes('Z')) {
+        bookingDateObj = new Date(booking.dropoff_date);
+      } else {
+        const [year, month, day] = booking.dropoff_date.split('-').map(Number);
+        bookingDateObj = new Date(year, month - 1, day, 12, 0, 0);
+      }
+      const todayObj = new Date();
+      const todayStr = todayObj.getFullYear() + '-' + String(todayObj.getMonth() + 1).padStart(2, '0') + '-' + String(todayObj.getDate()).padStart(2, '0');
+      const bookingDateStr = bookingDateObj.getFullYear() + '-' + String(bookingDateObj.getMonth() + 1).padStart(2, '0') + '-' + String(bookingDateObj.getDate()).padStart(2, '0');
       switch (dateFilter) {
         case 'today':
-          return bookingDate === today;
-        case 'week':
-          const startOfWeek = new Date();
-          startOfWeek.setDate(startOfWeek.getDate() - startOfWeek.getDay());
+          return bookingDateStr === todayStr;
+        case 'week': {
+          // Get start and end of week (Sunday to Saturday)
+          const startOfWeek = new Date(todayObj);
+          startOfWeek.setDate(todayObj.getDate() - todayObj.getDay());
           const endOfWeek = new Date(startOfWeek);
           endOfWeek.setDate(startOfWeek.getDate() + 6);
-          return bookingDate >= startOfWeek.toISOString().split('T')[0] && 
-                 bookingDate <= endOfWeek.toISOString().split('T')[0];
-        case 'month':
-          const currentMonth = new Date().getMonth();
-          const currentYear = new Date().getFullYear();
-          const bookingMonth = new Date(bookingDate).getMonth();
-          const bookingYear = new Date(bookingDate).getFullYear();
-          return bookingMonth === currentMonth && bookingYear === currentYear;
+          // Compare bookingDateObj to week range
+          return bookingDateObj >= startOfWeek && bookingDateObj <= endOfWeek;
+        }
+        case 'month': {
+          return (
+            bookingDateObj.getMonth() === todayObj.getMonth() &&
+            bookingDateObj.getFullYear() === todayObj.getFullYear()
+          );
+        }
         default:
           return true;
       }
@@ -151,7 +167,28 @@ export default function RecyclingCenterBookings() {
   };
 
   const formatDate = (dateString) => {
-    const date = new Date(dateString);
+    if (!dateString) return 'N/A';
+    
+    let date;
+    
+    // Handle ISO date strings (like "2026-10-09T00:00:00.000Z")
+    if (dateString.includes('T') || dateString.includes('Z')) {
+      date = new Date(dateString);
+    } else {
+      // Handle simple date strings (like "2026-10-09")
+      // Parse as local date to avoid timezone issues
+      const [year, month, day] = dateString.split('-').map(Number);
+      // Create date in local timezone by using local time constructor
+      date = new Date(year, month - 1, day, 12, 0, 0); // Use noon to avoid DST issues
+    }
+    
+    // Check if the date is valid
+    if (isNaN(date.getTime())) {
+      console.error('Invalid date:', dateString);
+      return 'Invalid Date';
+    }
+    
+    // Format the date
     return date.toLocaleDateString('en-US', {
       weekday: 'short',
       year: 'numeric',
@@ -162,6 +199,20 @@ export default function RecyclingCenterBookings() {
 
   const formatTime = (timeString) => {
     if (!timeString) return 'TBD';
+    
+    // If timeString is a full datetime, extract just the time
+    if (timeString.includes('T') || timeString.includes(' ')) {
+      const date = new Date(timeString);
+      if (!isNaN(date.getTime())) {
+        return date.toLocaleTimeString('en-US', {
+          hour: '2-digit',
+          minute: '2-digit',
+          timeZone: 'Africa/Kigali'
+        });
+      }
+    }
+    
+    // If it's already a time string (like "09:00"), return as is
     return timeString;
   };
 
@@ -198,7 +249,8 @@ export default function RecyclingCenterBookings() {
     setDetailsModal({ isOpen: false, booking: null });
   };
 
-  if (user?.role !== 'recycling_center') {
+  // Only allow access for recycling_center and admin roles
+  if (user && user.role !== 'recycling_center' && user.role !== 'admin') {
     return (
       <div className="min-h-screen bg-gray-50 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -212,7 +264,7 @@ export default function RecyclingCenterBookings() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
@@ -330,7 +382,8 @@ export default function RecyclingCenterBookings() {
                       {t('recyclingCenterBookings.tableHeaders.dateTime')}
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      {t('recyclingCenterBookings.tableHeaders.wasteTypes')}
+                     
+                    {user?.role === 'recycling_center' && t('recyclingCenterBookings.tableHeaders.wasteTypes')}
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                       {t('recyclingCenterBookings.tableHeaders.status')}
@@ -412,17 +465,21 @@ export default function RecyclingCenterBookings() {
                       {/* Waste Types */}
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex flex-wrap gap-1">
-                          {booking.waste_types && booking.waste_types.length > 0 ? (
-                            booking.waste_types.map((type, index) => (
-                              <span
-                                key={index}
-                                className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium"
-                              >
-                                {type}
+                          {user?.role === 'recycling_center' && (
+                            booking.waste_types && booking.waste_types.length > 0 ? (
+                              booking.waste_types.map((type, index) => (
+                                <span
+                                  key={index}
+                                  className="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full font-medium"
+                                >
+                                  {type}
+                                </span>
+                              ))
+                            ) : (
+                              <span className="text-xs text-gray-500">
+                                {t('recyclingCenterBookings.noWasteTypesSpecified')}
                               </span>
-                            ))
-                          ) : (
-                            <span className="text-xs text-gray-500">{t('recyclingCenterBookings.noWasteTypesSpecified')}</span>
+                            )
                           )}
                         </div>
                       </td>
@@ -443,7 +500,7 @@ export default function RecyclingCenterBookings() {
                           >
                             <User className="w-3 h-3" /> {t('recyclingCenterBookings.actions.details')}
                           </button>
-                          {booking.status !== 'approved' && (
+                          {booking.status !== 'approved' && user?.role === 'recycling_center' && (
                             <button 
                               onClick={() => openApprovalModal(booking)}
                               className="flex items-center gap-1 px-3 py-1 bg-green-600 text-white rounded text-xs hover:bg-green-700 transition-colors"

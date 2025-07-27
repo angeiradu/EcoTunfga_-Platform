@@ -4,7 +4,7 @@
 Ecotunga is an innovative platform that connects farmers with consumers, promoting sustainable agriculture and local food systems. The backend service provides robust APIs for user authentication, product management, order processing, and real-time communication between farmers and consumers.
 
 ## Repository
-[GitHub Repository](https://github.com/angeiradu/EcoTunfga_-Platform)
+[GitHub Repository](https://github.com/your-username/ecotunga)
 
 ## Tech Stack
 

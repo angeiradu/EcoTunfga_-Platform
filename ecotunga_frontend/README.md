@@ -1,11 +1,10 @@
 # Ecotunga Frontend
 
 ## Description
-is a user-friendly web application designed to promote sustainable waste management in Kigali, Rwanda. It empowers individuals and communities to schedule waste pickups, learn proper sorting techniques, earn rewards, and participate in local environmental initiatives.
-
+Ecotunga Frontend is a modern web application built with React that provides an intuitive interface for users to connect with local farmers, browse products, and manage their sustainable agriculture needs. The application features a responsive design, multi-language support, and real-time updates.
 
 ## Repository
-[GitHub Repository](https://github.com/angeiradu/EcoTunfga_-Platform)
+[GitHub Repository](https://github.com/your-username/ecotunga)
 
 ## Tech Stack
 

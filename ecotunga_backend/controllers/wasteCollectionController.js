@@ -64,53 +64,16 @@ exports.debugDatabaseStructure = async (req, res) => {
 exports.createWasteCollection = async (req, res) => {
   try {
     const {
-      name,
-      last_name,
-      gender,
-      email,
-      phone_number,
-      ubudehe_category,
-      house_number,
-      district,
-      sector,
-      cell,
-      street,
-      company_id,
-      pickup_date,
-      time_slot,
+      name, last_name, gender, email, phone_number, ubudehe_category, house_number, district, sector, cell, street, company_id, pickup_date, time_slot,
       notes
     } = req.body;
     const user_id = req.user.id;
-
-    // console.log('createWasteCollection called with data:', req.body);
-    // console.log('house_number from request:', house_number);
-
     const insertData = {
-      user_id,
-      name,
-      last_name,
-      gender,
-      email,
-      phone_number,
-      ubudehe_category,
-      house_number,
-      district,
-      sector,
-      cell,
-      street,
-      company_id,
-      pickup_date,
-      time_slot,
+      user_id,name,last_name,gender,email,phone_number,ubudehe_category,house_number,district,sector,cell,street,company_id,pickup_date,time_slot,
       notes
     };
 
-    // console.log('Insert data being sent to database:', insertData);
-
     const [id] = await db('waste_collection').insert(insertData);
-
-    // console.log('Waste collection created with ID:', id);
-
-    // Get company information for email
     let companyInfo = {};
     if (company_id) {
       try {
@@ -130,43 +93,17 @@ exports.createWasteCollection = async (req, res) => {
         console.error('Error fetching company info for email:', companyError);
       }
     }
-
-    // Prepare booking data for email
     const bookingData = {
-      id,
-      name,
-      last_name,
-      gender,
-      email,
-      phone_number,
-      ubudehe_category,
-      house_number,
-      district,
-      sector,
-      cell,
-      street,
-      pickup_date,
-      time_slot,
-      notes,
+      id,name,last_name,gender,email,phone_number,ubudehe_category,house_number,district,sector,cell,street,pickup_date,time_slot,notes,
       ...companyInfo
     };
-
-    // Send confirmation email to customer
     try {
-      // console.log('📧 Attempting to send booking confirmation email to:', email);
       const emailResult = await sendBookingConfirmationEmail(bookingData);
       if (emailResult.success) {
-        // console.log('✅ Booking confirmation email sent successfully');
-        // console.log('📧 Message ID:', emailResult.messageId);
       } else {
-        // console.error('❌ Failed to send booking confirmation email:', emailResult.error);
       }
     } catch (emailError) {
-      // console.error('❌ Error sending booking confirmation email:', emailError);
     }
-
-
-
     res.status(201).json({ 
       id,
       message: 'Waste collection booking created successfully. Confirmation email sent.',
@@ -499,6 +436,41 @@ exports.approveWasteCollection = async (req, res) => {
       }
     } catch (emailError) {
       console.error('❌ Error sending approval notification email:', emailError);
+    }
+
+    // Send payment confirmation request email to user
+    console.log('🔄 Starting payment confirmation email process...');
+    try {
+      const { email, id, name, last_name, pickup_date, time_slot, price, district, sector, cell, street } = wasteCollection;
+      console.log('📋 Extracted waste collection data:', { email, id, name, last_name, pickup_date, time_slot, price, district, sector, cell, street });
+      
+      const paymentEmailData = {
+        to: email,
+        subject: `Please Confirm Your Payment Intent for Waste Collection #${id}`,
+        data: {
+          userName: name + (last_name ? ' ' + last_name : ''),
+          bookingId: id,
+          bookingDate: pickup_date,
+          bookingTime: time_slot,
+          price: price || '5000 RWF', // Default price if not set
+          district: district,
+          sector: sector,
+          cell: cell,
+          street: street
+        }
+      };
+      console.log('📧 Prepared payment email data:', paymentEmailData);
+      
+      const paymentEmailResult = await require('../services/emailService').sendWasteCollectionPaymentEmail(paymentEmailData);
+      if (paymentEmailResult.success) {
+        console.log('✅ Payment confirmation request email sent successfully');
+        console.log('📨 Message ID:', paymentEmailResult.messageId);
+      } else {
+        console.error('❌ Failed to send payment confirmation request email:', paymentEmailResult.error);
+      }
+    } catch (paymentEmailError) {
+      console.error('❌ Error sending payment confirmation request email:', paymentEmailError);
+      console.error('🚨 Stack trace:', paymentEmailError.stack);
     }
 
     res.json({ message: 'Waste collection approved successfully' });

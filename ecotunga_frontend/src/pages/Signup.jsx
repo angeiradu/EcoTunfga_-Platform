@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from '../assets/login_logo.png';
 import LanguageSelector from '../components/LanguageSelector';
+import API from '../services/api';
 
 export default function Signup() {
   const [form, setForm] = useState({ 
@@ -62,16 +63,35 @@ export default function Signup() {
     setIsLoading(true);
     setServerError('');
     try {
-      navigate('/personal-info', { 
-        state: { 
-          userCredentials: {
-            name: form.name,
-            email: form.email,
-            password: form.password,
-            role: form.role
-          }
-        } 
+      // First, register the user
+      const response = await API.post('/auth/register', {
+        name: form.name,
+        email: form.email,
+        password: form.password,
+        role: form.role
       });
+
+      // If registration is successful, navigate to personal info
+      if (response.data) {
+        console.log('Signup: Registration successful, navigating to personal-info');
+        console.log('Signup: userCredentials being passed:', {
+          name: form.name,
+          email: form.email,
+          password: form.password,
+          role: form.role
+        });
+        
+        navigate('/personal-info', { 
+          state: { 
+            userCredentials: {
+              name: form.name,
+              email: form.email,
+              password: form.password,
+              role: form.role
+            }
+          } 
+        });
+      }
     } catch (err) {
       setServerError(err.response?.data?.message || 'Registration failed. Please try again.');
     } finally {
@@ -265,8 +285,11 @@ export default function Signup() {
             
             <button
               type="submit"
-              disabled={isLoading}
-              className="w-full py-3 px-4 rounded-lg bg-green-500 hover:bg-green-600 text-white font-semibold text-base sm:text-lg shadow-md transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed mt-2"
+              disabled={isLoading || !form?.email || !form?.password}
+              className={`w-full py-3 px-4 rounded-lg text-white font-semibold text-base sm:text-lg shadow-md transition-all duration-300 mt-2
+                ${isLoading || !form?.email || !form?.password
+                  ? 'bg-gray-400 cursor-not-allowed'
+                  : 'bg-green-500 hover:bg-green-600'}`}
             >
               {isLoading ? (
                 <span>Creating account...</span>
