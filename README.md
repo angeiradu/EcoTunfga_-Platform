@@ -118,8 +118,7 @@ The system met  all the original project goals:
 
 ---
 
-## 📹 Demo & Deployment
+## Deployment
 
-🎥 Demo Video : https://youtu.be/Oj2Rgd2i3T4
 
 🌐 Live App: http://62.171.173.62/login
